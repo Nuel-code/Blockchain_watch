@@ -19,5 +19,6 @@ def normalize(raw: dict, snapshot_date: str) -> Candidate:
         name=raw.get("name"),
         symbol=raw.get("symbol"),
         decimals=raw.get("decimals"),
+        website=raw.get("website"),
         raw_refs=raw.get("raw_refs", {}),
     )
