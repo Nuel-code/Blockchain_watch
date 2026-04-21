@@ -1,4 +1,14 @@
 {
-  "days": [],
-  "updated_at": null
+  "days": [
+    {
+      "date": "2026-01-01",
+      "stored_count": 1,
+      "chains": [
+        "solana",
+        "base",
+        "ethereum"
+      ]
+    }
+  ],
+  "updated_at": "2026-04-21T09:34:35.592624+00:00"
 }
