@@ -16,34 +16,64 @@ def bucketize_liquidity(liquidity_usd: float) -> float:
     return 0.0
 
 
+# -----------------------
+# LABELS (UPDATED)
+# -----------------------
 def derive_labels(c: Candidate) -> list[str]:
     labels = []
-    if c.relevance_score >= 0.70:
+
+    if c.relevance_score >= 0.75:
         labels.append("emerging")
-    if c.relevance_score < 0.45:
-        labels.append("low_signal")
-    if c.spam_score >= 0.60:
+
+    if c.liquidity_usd >= 10000:
+        labels.append("liquid")
+
+    if c.social_confidence >= 0.5:
+        labels.append("social")
+
+    if c.recognized_factory:
+        labels.append("dex_listed")
+
+    if c.spam_score >= 0.6:
         labels.append("spam_candidate")
-    if c.scam_score >= 0.65:
-        labels.append("scam_candidate")
-    if c.confidence_score >= 0.60 and c.spam_score < 0.40:
-        labels.append("likely_real")
+
+    if c.scam_score >= 0.5:
+        labels.append("risk_flag")
+
+    if c.relevance_score < 0.4:
+        labels.append("low_signal")
+
     return labels
 
 
+# -----------------------
+# ACTION (UPDATED)
+# -----------------------
 def derive_action(c: Candidate) -> str:
-    if c.relevance_score >= 0.75 and c.confidence_score >= 0.60:
+    if c.relevance_score >= 0.75 and c.confidence_score >= 0.6:
         return "watch_now"
-    if c.relevance_score >= 0.55 and c.spam_score < 0.50:
+
+    if c.relevance_score >= 0.6 and c.spam_score < 0.5:
         return "likely_real"
-    return "ignore"
+
+    if c.spam_score >= 0.6:
+        return "ignore"
+
+    return "low_priority"
 
 
+# -----------------------
+# MAIN SCORING
+# -----------------------
 def score(c: Candidate) -> Candidate:
     liquidity_score = bucketize_liquidity(c.liquidity_usd)
     wallet_score = min(c.unique_external_wallets_1h / 20, 1.0)
     tx_score = min(c.tx_count_1h / 100, 1.0)
-    setup_score = 1.0 if c.time_to_first_liquidity and c.time_to_first_liquidity < 3600 else 0.3
+    setup_score = (
+        1.0
+        if c.time_to_first_liquidity and c.time_to_first_liquidity < 3600
+        else 0.3
+    )
     factory_score = 1.0 if c.recognized_factory else 0.0
     verification_score = 1.0 if c.source_verified else 0.0
     website_score = 1.0 if c.website else 0.0
@@ -62,22 +92,37 @@ def score(c: Candidate) -> Candidate:
         0.15 * c.spam_score -
         0.10 * c.scam_score
     )
+
     c.relevance_score = max(0.0, min(relevance, 1.0))
 
+    # -----------------------
+    # CONFIDENCE SCORE
+    # -----------------------
     confidence = 0.25
+
     if c.website:
         confidence += 0.15
+
     if c.source_verified:
         confidence += 0.15
+
     if c.recognized_factory:
         confidence += 0.10
+
     if c.tx_count_1h >= 10:
         confidence += 0.10
+
     if c.unique_external_wallets_1h >= 5:
         confidence += 0.10
+
     confidence += min(c.social_confidence, 0.15)
 
     c.confidence_score = max(0.0, min(confidence, 1.0))
+
+    # -----------------------
+    # FINAL OUTPUT
+    # -----------------------
     c.labels = derive_labels(c)
     c.action = derive_action(c)
+
     return c
