@@ -17,7 +17,16 @@
         "base",
         "ethereum"
       ]
+    },
+    {
+      "date": "2026-01-03",
+      "stored_count": 0,
+      "chains": [
+        "solana",
+        "base",
+        "ethereum"
+      ]
     }
   ],
-  "updated_at": "2026-04-21T10:19:12.102807+00:00"
+  "updated_at": "2026-04-21T15:10:03.225702+00:00"
 }
