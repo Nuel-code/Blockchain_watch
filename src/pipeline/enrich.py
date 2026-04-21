@@ -4,18 +4,15 @@ from src.models import Candidate
 
 def enrich(candidate: Candidate) -> Candidate:
     if candidate.chain == "ethereum":
-        candidate.liquidity_usd = 12000
-        candidate.unique_external_wallets_1h = 8
-        candidate.tx_count_1h = 25
-        candidate.time_to_first_liquidity = 420
-        candidate.source_verified = True
+        candidate.liquidity_usd = 5000
+        candidate.unique_external_wallets_1h = 6
+        candidate.tx_count_1h = 12
+        candidate.time_to_first_liquidity = 600
     elif candidate.chain == "base":
-        candidate.liquidity_usd = 24000
-        candidate.unique_external_wallets_1h = 15
-        candidate.tx_count_1h = 44
-        candidate.time_to_first_liquidity = 180
-        candidate.recognized_factory = True
-        candidate.recognized_factory_name = "UniswapV2"
+        candidate.liquidity_usd = 7000
+        candidate.unique_external_wallets_1h = 7
+        candidate.tx_count_1h = 14
+        candidate.time_to_first_liquidity = 420
     elif candidate.chain == "solana":
         candidate.liquidity_usd = 9000
         candidate.unique_external_wallets_1h = 11
