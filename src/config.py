@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 
 
-def utc_now() -> datetime:
+def utc_now():
     return datetime.now(timezone.utc)
 
 
