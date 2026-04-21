@@ -30,10 +30,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run daily update
+      - name: Run daily pipeline
         env:
           DAILY_CAP: "500"
-          MAX_DAYS_PER_RUN: "1"
         run: python -m src.main daily
 
       - name: Commit outputs
