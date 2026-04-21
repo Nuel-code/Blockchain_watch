@@ -15,5 +15,7 @@ class SolanaAdapter:
                 "name": "Solana Test Asset",
                 "symbol": "SOLX",
                 "decimals": 9,
+                "website": None,
+                "raw_refs": {},
             }
         ]
