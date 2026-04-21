@@ -28,6 +28,12 @@ def apply_filters(c: Candidate) -> Candidate:
     if c.source_verified:
         why_kept.append("verified source or explorer metadata")
 
+    if c.website:
+        why_kept.append("website resolved")
+
+    if c.social_confidence >= 0.4:
+        why_kept.append("project socials resolved")
+
     c.spam_score = min(spam, 1.0)
     c.scam_score = min(scam, 1.0)
     c.why_kept = why_kept
