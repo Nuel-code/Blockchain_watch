@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run fake backfill
+      - name: Run backfill
         env:
           START_DATE: "2026-01-01"
           END_DATE: "2026-01-03"
