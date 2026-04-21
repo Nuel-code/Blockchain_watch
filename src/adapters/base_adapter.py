@@ -1,19 +1,53 @@
 from __future__ import annotations
+import requests
 
 
 class BaseAdapter:
     chain = "base"
+    URL = "https://api.dexscreener.com/token-profiles/latest/v1"
 
     def fetch_candidates_for_day(self, day: str) -> list[dict]:
-        return [
-            {
-                "chain": "base",
-                "object_type": "token",
-                "first_seen": f"{day}T09:00:00Z",
-                "address": "0xbasefake00000000000000000000000000000001",
-                "deployer": "0xdeployerbase000000000000000000000000001",
-                "name": "Base Test Asset",
-                "symbol": "BASX",
-                "decimals": 18,
-            }
-        ]
+        try:
+            r = requests.get(self.URL, timeout=20)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as e:
+            print(f"[base] fetch failed: {e}")
+            return []
+
+        results = []
+        for item in data:
+            if item.get("chainId") != "base":
+                continue
+
+            token_address = item.get("tokenAddress")
+            if not token_address:
+                continue
+
+            results.append(
+                {
+                    "chain": "base",
+                    "object_type": "token",
+                    "first_seen": f"{day}T12:00:00Z",
+                    "address": token_address,
+                    "deployer": None,
+                    "name": item.get("header") or item.get("description") or "Unknown",
+                    "symbol": None,
+                    "decimals": None,
+                    "website": self._extract_website(item),
+                    "raw_refs": {
+                        "icon": item.get("icon"),
+                        "header": item.get("header"),
+                        "description": item.get("description"),
+                        "links": item.get("links", []),
+                    },
+                }
+            )
+
+        return results[:100]
+
+    def _extract_website(self, item: dict) -> str | None:
+        for link in item.get("links", []):
+            if link.get("type") == "website" and link.get("url"):
+                return link["url"]
+        return None
