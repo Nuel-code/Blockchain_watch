@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 import re
 import requests
@@ -30,7 +29,7 @@ def extract_from_links(links: list[dict]) -> tuple[Socials, float]:
 
         if "docs" in url.lower() or "gitbook" in url.lower():
             socials.docs = url
-            confidence += 0.1
+            confidence += 0.10
 
     return socials, min(confidence, 0.8)
 
@@ -44,7 +43,7 @@ def scrape_website(url: str) -> tuple[Socials, float] | None:
 
     soup = BeautifulSoup(r.text, "lxml")
     hrefs = [a.get("href") for a in soup.find_all("a", href=True)]
-    text = "\n".join(hrefs)
+    text = "\n".join(h for h in hrefs if h)
 
     socials = Socials()
     confidence = 0.0
@@ -66,41 +65,46 @@ def scrape_website(url: str) -> tuple[Socials, float] | None:
     return socials, min(confidence, 0.9)
 
 
-def resolve_socials(candidate: Candidate) -> Candidate:
-    sources = []
+def merge_socials(base: Socials, new: Socials) -> Socials:
+    merged = base.model_copy(deep=True)
+    for field in merged.model_fields:
+        if getattr(merged, field) is None and getattr(new, field) is not None:
+            setattr(merged, field, getattr(new, field))
+    return merged
 
-    # 1. DexScreener links
+
+def has_any_socials(s: Socials) -> bool:
+    return any(getattr(s, field) for field in s.model_fields)
+
+
+def resolve_socials(candidate: Candidate) -> Candidate:
+    sources: list[tuple[str, Socials, float]] = []
+
     links = candidate.raw_refs.get("links", [])
     if links:
         s, conf = extract_from_links(links)
-        if any(vars(s).values()):
+        if has_any_socials(s):
             sources.append(("dexscreener_links", s, conf))
 
-    # 2. Website scraping
     if candidate.website:
         result = scrape_website(candidate.website)
         if result:
             s, conf = result
-            sources.append(("website_scrape", s, conf))
+            if has_any_socials(s):
+                sources.append(("website_scrape", s, conf))
 
-    # Merge sources
     if not sources:
         return candidate
 
     final = Socials()
     best_conf = 0.0
-    source_name = "combined"
 
-    for name, s, conf in sources:
-        for field in vars(s):
-            val = getattr(s, field)
-            if val and not getattr(final, field):
-                setattr(final, field, val)
-
+    for _, s, conf in sources:
+        final = merge_socials(final, s)
         best_conf = max(best_conf, conf)
 
     candidate.socials = final
-    candidate.social_source = source_name
+    candidate.social_source = "combined" if len(sources) > 1 else sources[0][0]
     candidate.social_confidence = min(best_conf, 1.0)
 
     return candidate
