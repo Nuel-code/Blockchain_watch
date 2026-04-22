@@ -1,0 +1,53 @@
+name: Backfill Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Backfill start date (YYYY-MM-DD)"
+        required: false
+        default: "2026-01-01"
+      end_date:
+        description: "Backfill end date (YYYY-MM-DD)"
+        required: false
+        default: ""
+  schedule:
+    - cron: "15 2 * * *"
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run backfill
+        env:
+          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+          SOLANA_RPC_URL: ${{ secrets.SOLANA_RPC_URL }}
+          BACKFILL_START_OVERRIDE: ${{ github.event.inputs.start_date }}
+          BACKFILL_END_OVERRIDE: ${{ github.event.inputs.end_date }}
+        run: python -m src.pipeline.backfill
+
+      - name: Commit data/state changes
+        run: |
+          git config user.name "blockchain-watch-bot"
+          git config user.email "blockchain-watch-bot@users.noreply.github.com"
+          git add data state
+          git commit -m "backfill update" || echo "No changes to commit"
+          git push
