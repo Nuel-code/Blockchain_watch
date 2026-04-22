@@ -1,63 +1,63 @@
-from __future__ import annotations
-from src.models import Candidate
+from src.config import (
+    MIN_LIQUIDITY_USD,
+    MIN_TX_COUNT_1H,
+    MIN_UNIQUE_WALLETS_1H,
+    RECOGNIZED_FACTORIES,
+)
+from src.utils import count_non_empty
 
 
-def apply_filters(c: Candidate) -> Candidate:
+def apply_filters(item: dict) -> dict:
+    chain = item["chain"]
+    dex_id = (item.get("recognized_factory") or "").lower()
+    socials = item.get("socials", {})
+
+    social_count = count_non_empty(socials.values())
+
+    keep = True
     why_kept = []
     why_flagged = []
-    spam = 0.0
-    scam = 0.0
+    labels = []
 
-    # --- HARD NEGATIVES ---
-    if c.liquidity_usd <= 0:
-        spam += 0.4
-        why_flagged.append("no liquidity")
+    if item["liquidity_usd"] >= MIN_LIQUIDITY_USD:
+        why_kept.append(f"liquidity_usd={item['liquidity_usd']:.2f}")
+        labels.append("liquid")
+    else:
+        why_flagged.append("low_liquidity")
+        keep = False
 
-    if c.tx_count_1h == 0:
-        spam += 0.3
-        why_flagged.append("no activity")
+    if item["tx_count_1h"] >= MIN_TX_COUNT_1H:
+        why_kept.append(f"tx_count_1h={item['tx_count_1h']}")
+        labels.append("active")
+    else:
+        why_flagged.append("low_activity")
+        keep = False
 
-    if c.unique_external_wallets_1h <= 1:
-        spam += 0.2
-        why_flagged.append("no external participation")
+    if item["unique_external_wallets_1h"] >= MIN_UNIQUE_WALLETS_1H:
+        why_kept.append(f"unique_external_wallets_1h={item['unique_external_wallets_1h']}")
+        labels.append("multi_wallet")
+    else:
+        why_flagged.append("few_unique_wallets")
 
-    # --- WEAK SIGNAL ---
-    if c.liquidity_usd < 2000:
-        spam += 0.1
-        why_flagged.append("very low liquidity")
+    if dex_id in RECOGNIZED_FACTORIES.get(chain, set()):
+        why_kept.append(f"recognized_factory={dex_id}")
+        labels.append("dex_listed")
+    else:
+        why_flagged.append("unrecognized_factory")
 
-    # --- POSITIVES ---
-    if c.liquidity_usd >= 5000:
-        why_kept.append("liquidity present")
+    if social_count > 0:
+        why_kept.append(f"social_count={social_count}")
+        labels.append("socially_present")
+    else:
+        why_flagged.append("no_socials")
 
-    if c.tx_count_1h >= 10:
-        why_kept.append("active trading")
+    if socials.get("website"):
+        labels.append("has_website")
 
-    if c.unique_external_wallets_1h >= 5:
-        why_kept.append("multiple wallets interacting")
+    item["why_kept"] = why_kept
+    item["why_flagged"] = why_flagged
+    item["labels"] = labels
+    item["signals"]["social_count"] = social_count
+    item["signals"]["keep_gate_passed"] = keep
 
-    if c.recognized_factory:
-        why_kept.append("recognized dex")
-
-    if c.website:
-        why_kept.append("website found")
-
-    if c.social_confidence >= 0.4:
-        why_kept.append("social presence")
-
-    # --- SCAM SIGNALS ---
-    if c.social_confidence == 0 and c.website is None:
-        scam += 0.3
-        why_flagged.append("no socials or website")
-
-    if c.liquidity_usd > 0 and c.tx_count_1h == 0:
-        scam += 0.2
-        why_flagged.append("liquidity but no activity")
-
-    # Clamp
-    c.spam_score = min(spam, 1.0)
-    c.scam_score = min(scam, 1.0)
-    c.why_kept = why_kept
-    c.why_flagged = why_flagged
-
-    return c
+    return item
