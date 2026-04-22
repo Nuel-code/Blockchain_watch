@@ -1,120 +1,56 @@
-from __future__ import annotations
 from datetime import datetime, timedelta
 
-from src.adapters.base_adapter import BaseAdapter
-from src.adapters.ethereum_adapter import EthereumAdapter
-from src.adapters.solana_adapter import SolanaAdapter
-
-from src.pipeline.checkpoint import load_or_init, mark_day_complete
-from src.pipeline.normalize import normalize
-from src.pipeline.enrich import enrich
-from src.pipeline.filtering import apply_filters
-from src.pipeline.scoring import score
-from src.pipeline.storage import write_day, update_latest, update_manifest
-
-from src.pipeline.aggregate import dedupe_new_candidates, rebuild_all_json
+from src.config import BACKFILL_END_OVERRIDE, BACKFILL_START_OVERRIDE, DEFAULT_BACKFILL_START, TODAY_UTC
+from src.pipeline.checkpoint import get_checkpoint, set_checkpoint, set_run_status
+from src.pipeline.daily import run_daily_for_date
 
 
-def daterange(start_date: str, end_date: str):
-    cur = datetime.fromisoformat(start_date).date()
-    end = datetime.fromisoformat(end_date).date()
-    while cur <= end:
-        yield cur.isoformat()
-        cur += timedelta(days=1)
+def _resolve_start_end():
+    start = BACKFILL_START_OVERRIDE or DEFAULT_BACKFILL_START
+    end = BACKFILL_END_OVERRIDE or TODAY_UTC
+    return start, end
 
 
-def rank_key(c):
-    return (
-        c.relevance_score,
-        c.confidence_score,
-        c.liquidity_usd,
-        c.unique_external_wallets_1h,
+def backfill():
+    start_str, end_str = _resolve_start_end()
+    checkpoint = get_checkpoint()
+
+    if checkpoint.get("last_completed_date"):
+        last_done = datetime.strptime(checkpoint["last_completed_date"], "%Y-%m-%d")
+        start_dt = last_done + timedelta(days=1)
+    else:
+        start_dt = datetime.strptime(start_str, "%Y-%m-%d")
+
+    end_dt = datetime.strptime(end_str, "%Y-%m-%d")
+
+    set_run_status(
+        {
+            "mode": "backfill",
+            "start_date": start_dt.strftime("%Y-%m-%d"),
+            "end_date": end_dt.strftime("%Y-%m-%d"),
+            "status": "running",
+            "updated_at": datetime.utcnow().isoformat() + "Z",
+        }
+    )
+
+    cursor = start_dt
+    while cursor <= end_dt:
+        target_date = cursor.strftime("%Y-%m-%d")
+        run_daily_for_date(target_date)
+        set_checkpoint(target_date, status="running")
+        cursor += timedelta(days=1)
+
+    set_checkpoint(end_dt.strftime("%Y-%m-%d"), status="complete")
+    set_run_status(
+        {
+            "mode": "backfill",
+            "start_date": start_dt.strftime("%Y-%m-%d"),
+            "end_date": end_dt.strftime("%Y-%m-%d"),
+            "status": "complete",
+            "updated_at": datetime.utcnow().isoformat() + "Z",
+        }
     )
 
 
-def run_backfill(config) -> None:
-    adapters = [
-        SolanaAdapter(),
-        BaseAdapter(),
-        EthereumAdapter(),
-    ]
-
-    cp = load_or_init(config.start_date, config.end_date)
-    current = cp["next_day"]
-    processed = 0
-
-    for day in daterange(current, config.end_date):
-
-        if processed >= config.max_days_per_run:
-            break
-
-        # 1. Fetch raw candidates
-        raw = []
-        for adapter in adapters:
-            try:
-                raw.extend(adapter.fetch_candidates_for_day(day))
-            except Exception as e:
-                print(f"[{adapter.chain}] adapter error: {e}")
-
-        # 2. Normalize
-        normalized = [normalize(item, day) for item in raw]
-
-        # 3. Enrich
-        enriched = [enrich(x) for x in normalized]
-
-        # 4. Filter
-        filtered = [apply_filters(x) for x in enriched]
-
-        # 5. Score
-        scored = [score(x) for x in filtered]
-
-        # 6. Select survivors
-        survivors = [
-            x for x in scored
-            if x.action != "ignore" or x.relevance_score >= 0.45
-        ]
-
-        # 7. Rank
-        survivors.sort(key=rank_key, reverse=True)
-
-        # 8. DEDUPE (global)
-        deduped = dedupe_new_candidates(survivors)
-
-        # 9. Apply daily cap AFTER dedupe
-        kept = deduped[: config.daily_cap]
-
-        # 10. Build metadata
-        meta = {
-            "date": day,
-            "generated_at": datetime.utcnow().isoformat() + "Z",
-            "mode": "backfill",
-            "daily_cap": config.daily_cap,
-            "total_raw_candidates": len(raw),
-            "total_filtered_candidates": len(filtered),
-            "total_scored_survivors": len(survivors),
-            "post_dedupe_count": len(deduped),
-            "stored_count": len(kept),
-            "excluded_due_to_cap": max(0, len(deduped) - len(kept)),
-            "chains": ["solana", "base", "ethereum"],
-        }
-
-        # 11. Write outputs
-        write_day(day, kept, meta)
-        update_latest(day, kept, meta)
-        update_manifest(day, meta)
-
-        # 12. Rebuild aggregate dataset
-        rebuild_all_json()
-
-        # 13. Update checkpoint
-        mark_day_complete(day)
-
-        print(
-            f"[{day}] raw={len(raw)} "
-            f"filtered={len(filtered)} "
-            f"scored={len(survivors)} "
-            f"deduped={len(deduped)} "
-            f"stored={len(kept)}"
-        )
-
-        processed += 1
+if __name__ == "__main__":
+    backfill()
