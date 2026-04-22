@@ -1,128 +1,91 @@
-from __future__ import annotations
-from src.models import Candidate
+from src.config import RECOGNIZED_FACTORIES
+from src.utils import clamp01
 
 
-def bucketize_liquidity(liquidity_usd: float) -> float:
-    if liquidity_usd >= 100_000:
+def _log_scaled(x: float, cap: float) -> float:
+    if x <= 0:
+        return 0.0
+    if x >= cap:
         return 1.0
-    if liquidity_usd >= 25_000:
-        return 0.8
-    if liquidity_usd >= 10_000:
-        return 0.6
-    if liquidity_usd >= 2_500:
-        return 0.4
-    if liquidity_usd > 0:
-        return 0.2
-    return 0.0
+    # simple nonlinear-ish scale without importing math? no, let's use math.
+    import math
+    return clamp01(math.log1p(x) / math.log1p(cap))
 
 
-# -----------------------
-# LABELS (UPDATED)
-# -----------------------
-def derive_labels(c: Candidate) -> list[str]:
-    labels = []
+def score_item(item: dict) -> dict:
+    liquidity_score = _log_scaled(item["liquidity_usd"], 100_000)
+    activity_score = _log_scaled(item["tx_count_1h"], 200)
+    wallet_score = _log_scaled(item["unique_external_wallets_1h"], 100)
+    volume_score = _log_scaled(item["volume_usd_24h"], 500_000)
 
-    if c.relevance_score >= 0.75:
-        labels.append("emerging")
+    social_count = item["signals"].get("social_count", 0)
+    social_score = clamp01(social_count / 5.0)
 
-    if c.liquidity_usd >= 10000:
-        labels.append("liquid")
+    recognized = (item.get("recognized_factory") or "").lower() in RECOGNIZED_FACTORIES.get(item["chain"], set())
+    factory_score = 1.0 if recognized else 0.2
 
-    if c.social_confidence >= 0.5:
-        labels.append("social")
+    momentum_score = clamp01(item.get("signals", {}).get("momentum_score", 0.0))
 
-    if c.recognized_factory:
-        labels.append("dex_listed")
+    spam_penalty = 0.0
+    if item["liquidity_usd"] <= 0:
+        spam_penalty += 0.35
+    if item["tx_count_1h"] <= 1:
+        spam_penalty += 0.2
+    if item["unique_external_wallets_1h"] <= 1:
+        spam_penalty += 0.2
+    if social_count == 0:
+        spam_penalty += 0.15
+    if not recognized:
+        spam_penalty += 0.1
 
-    if c.spam_score >= 0.6:
-        labels.append("spam_candidate")
+    relevance_score = (
+        0.23 * liquidity_score
+        + 0.18 * activity_score
+        + 0.16 * wallet_score
+        + 0.16 * social_score
+        + 0.10 * factory_score
+        + 0.07 * volume_score
+        + 0.10 * momentum_score
+    ) - spam_penalty * 0.35
 
-    if c.scam_score >= 0.5:
-        labels.append("risk_flag")
-
-    if c.relevance_score < 0.4:
-        labels.append("low_signal")
-
-    return labels
-
-
-# -----------------------
-# ACTION (UPDATED)
-# -----------------------
-def derive_action(c: Candidate) -> str:
-    if c.relevance_score >= 0.75 and c.confidence_score >= 0.6:
-        return "watch_now"
-
-    if c.relevance_score >= 0.6 and c.spam_score < 0.5:
-        return "likely_real"
-
-    if c.spam_score >= 0.6:
-        return "ignore"
-
-    return "low_priority"
-
-
-# -----------------------
-# MAIN SCORING
-# -----------------------
-def score(c: Candidate) -> Candidate:
-    liquidity_score = bucketize_liquidity(c.liquidity_usd)
-    wallet_score = min(c.unique_external_wallets_1h / 20, 1.0)
-    tx_score = min(c.tx_count_1h / 100, 1.0)
-    setup_score = (
-        1.0
-        if c.time_to_first_liquidity and c.time_to_first_liquidity < 3600
-        else 0.3
-    )
-    factory_score = 1.0 if c.recognized_factory else 0.0
-    verification_score = 1.0 if c.source_verified else 0.0
-    website_score = 1.0 if c.website else 0.0
-    social_score = c.social_confidence
-
-    relevance = (
-        0.22 * liquidity_score +
-        0.18 * wallet_score +
-        0.14 * tx_score +
-        0.10 * setup_score +
-        0.08 * factory_score +
-        0.06 * verification_score +
-        0.07 * website_score +
-        0.10 * social_score +
-        0.05 * c.deployer_quality_score -
-        0.15 * c.spam_score -
-        0.10 * c.scam_score
+    confidence_score = (
+        0.18 * liquidity_score
+        + 0.14 * activity_score
+        + 0.20 * wallet_score
+        + 0.22 * social_score
+        + 0.16 * factory_score
+        + 0.10 * (1.0 - clamp01(spam_penalty))
     )
 
-    c.relevance_score = max(0.0, min(relevance, 1.0))
+    relevance_score = clamp01(relevance_score)
+    confidence_score = clamp01(confidence_score)
 
-    # -----------------------
-    # CONFIDENCE SCORE
-    # -----------------------
-    confidence = 0.25
+    if relevance_score >= 0.72 and confidence_score >= 0.65:
+        action = "watch_now"
+    elif relevance_score >= 0.45 and confidence_score >= 0.45:
+        action = "likely_real"
+    else:
+        action = "ignore"
 
-    if c.website:
-        confidence += 0.15
+    item["signals"].update(
+        {
+            "liquidity_score": round(liquidity_score, 4),
+            "activity_score": round(activity_score, 4),
+            "wallet_score": round(wallet_score, 4),
+            "social_score": round(social_score, 4),
+            "factory_score": round(factory_score, 4),
+            "volume_score": round(volume_score, 4),
+            "momentum_score": round(momentum_score, 4),
+        }
+    )
 
-    if c.source_verified:
-        confidence += 0.15
-
-    if c.recognized_factory:
-        confidence += 0.10
-
-    if c.tx_count_1h >= 10:
-        confidence += 0.10
-
-    if c.unique_external_wallets_1h >= 5:
-        confidence += 0.10
-
-    confidence += min(c.social_confidence, 0.15)
-
-    c.confidence_score = max(0.0, min(confidence, 1.0))
-
-    # -----------------------
-    # FINAL OUTPUT
-    # -----------------------
-    c.labels = derive_labels(c)
-    c.action = derive_action(c)
-
-    return c
+    item["risk_scores"] = {
+        "spam_penalty": round(spam_penalty, 4),
+        "confidence_score": round(confidence_score, 4),
+    }
+    item["scores"] = {
+        "relevance_score": round(relevance_score, 4),
+        "confidence_score": round(confidence_score, 4),
+    }
+    item["action"] = action
+    return item
