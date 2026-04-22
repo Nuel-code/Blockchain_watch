@@ -1,38 +1,28 @@
-from __future__ import annotations
-from datetime import datetime, timezone
-from src.models import Candidate
-from src.utils import write_json, atomic_replace, read_json
+from typing import List
+
+from src.utils import append_unique, load_json, save_json
 
 
-def write_day(day: str, items: list[Candidate], meta: dict) -> None:
-    path = f"data/{day}.json"
-    tmp = f"{path}.tmp"
-    payload = {
-        "meta": meta,
-        "items": [item.model_dump() for item in items],
+def store_snapshot(snapshot_date: str, items: List[dict]) -> None:
+    day_path = f"data/{snapshot_date}.json"
+    save_json(day_path, items)
+
+    save_json("data/latest.json", items)
+
+    manifest = load_json("data/manifest.json", {})
+    manifest[snapshot_date] = {
+        "count": len(items),
+        "top_ids": [x.get("id") for x in items[:20]],
     }
-    write_json(tmp, payload)
-    atomic_replace(tmp, path)
+    save_json("data/manifest.json", manifest)
+
+    all_rows = load_json("data/all.json", [])
+    all_rows = append_unique(all_rows, items, key="id")
+    save_json("data/all.json", all_rows)
 
 
-def update_latest(day: str, items: list[Candidate], meta: dict) -> None:
-    payload = {
-        "meta": meta | {"latest_day": day},
-        "items": [item.model_dump() for item in items],
-    }
-    write_json("data/latest.json", payload)
-
-
-def update_manifest(day: str, meta: dict) -> None:
-    manifest = read_json("data/manifest.json", {"days": [], "updated_at": None})
-    manifest["days"] = [d for d in manifest["days"] if d["date"] != day]
-    manifest["days"].append(
-        {
-            "date": day,
-            "stored_count": meta.get("stored_count", 0),
-            "chains": meta.get("chains", []),
-        }
-    )
-    manifest["days"] = sorted(manifest["days"], key=lambda x: x["date"])
-    manifest["updated_at"] = datetime.now(timezone.utc).isoformat()
-    write_json("data/manifest.json", manifest)
+def update_seen_ids(items: List[dict]) -> None:
+    seen_ids = set(load_json("state/seen_ids.json", []))
+    for item in items:
+        seen_ids.add(item["id"])
+    save_json("state/seen_ids.json", sorted(seen_ids))
