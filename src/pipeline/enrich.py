@@ -1,113 +1,183 @@
-from __future__ import annotations
-from src.models import Candidate
-from src.pipeline.socials import resolve_socials
-from src.clients.dexscreener import DexScreenerClient
+from collections import Counter
+from typing import Any, Dict, List
+
+from src.clients.dexscreener import orders_for_token, token_pairs
+from src.config import CHAIN_TO_ETHERSCAN_ID, ETHERSCAN_API_KEY, SOLANA_RPC_URL
+from src.utils import request_json, safe_float
 
 
-dex_client = DexScreenerClient()
+def select_best_pair(chain: str, token_address: str) -> dict:
+    pairs = token_pairs(chain, token_address)
+    if not pairs:
+        return {}
+
+    def pair_score(p: dict) -> float:
+        liquidity = safe_float((p.get("liquidity") or {}).get("usd"), 0.0)
+        volume = safe_float((p.get("volume") or {}).get("h24"), 0.0)
+        txns_h1 = p.get("txns", {}).get("h1", {})
+        tx_count_1h = safe_float(txns_h1.get("buys"), 0) + safe_float(txns_h1.get("sells"), 0)
+        return liquidity * 1.0 + volume * 0.2 + tx_count_1h * 10
+
+    pairs = sorted(pairs, key=pair_score, reverse=True)
+    return pairs[0]
 
 
-def _safe_float(value, default=0.0) -> float:
+def _solana_activity_proxy(token_address: str) -> Dict[str, int]:
+    # MVP proxy: fetch recent signatures for the token address, then inspect up to 15 txs.
+    payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getSignaturesForAddress",
+        "params": [
+            token_address,
+            {"limit": 15}
+        ],
+    }
+
     try:
-        if value is None:
-            return default
-        return float(value)
+        data = request_json("POST", SOLANA_RPC_URL, json_body=payload, timeout=20, retries=1)
+        signatures = data.get("result", []) if isinstance(data, dict) else []
     except Exception:
-        return default
+        return {"tx_count_1h": 0, "unique_external_wallets_1h": 0}
 
+    tx_count = 0
+    wallets = set()
 
-def _safe_int(value, default=0) -> int:
-    try:
-        if value is None:
-            return default
-        return int(value)
-    except Exception:
-        return default
+    for row in signatures[:15]:
+        sig = row.get("signature")
+        block_time = row.get("blockTime")
+        if not sig:
+            continue
 
-
-def enrich(candidate: Candidate) -> Candidate:
-    candidate = resolve_socials(candidate)
-
-    pairs = dex_client.fetch_token_pairs(candidate.address)
-
-    chain_pairs = []
-    for pair in pairs:
-        if pair.get("chainId") == candidate.chain:
-            chain_pairs.append(pair)
-
-    best_pair = None
-    best_liquidity = -1.0
-
-    for pair in chain_pairs:
-        liq = _safe_float((pair.get("liquidity") or {}).get("usd"))
-        if liq > best_liquidity:
-            best_liquidity = liq
-            best_pair = pair
-
-    if best_pair:
-        liquidity = _safe_float((best_pair.get("liquidity") or {}).get("usd"))
-        volume_24h = _safe_float((best_pair.get("volume") or {}).get("h24"))
-        txns_h24 = best_pair.get("txns") or {}
-        txns_h24_total = 0
-
-        # DexScreener exposes h24 more reliably than h1 across many pairs.
-        # MVP proxy: use h24 txns compressed to hourly-ish estimate.
-        if isinstance(txns_h24, dict):
-            h24 = txns_h24.get("h24") or {}
-            buys = _safe_int(h24.get("buys"))
-            sells = _safe_int(h24.get("sells"))
-            txns_h24_total = buys + sells
-
-        candidate.liquidity_usd = liquidity
-        candidate.tx_count_1h = max(0, txns_h24_total // 24)
-
-        # We do not get unique wallets directly here.
-        # MVP proxy from txn breadth.
-        if txns_h24_total >= 240:
-            candidate.unique_external_wallets_1h = 18
-        elif txns_h24_total >= 120:
-            candidate.unique_external_wallets_1h = 10
-        elif txns_h24_total >= 48:
-            candidate.unique_external_wallets_1h = 6
-        elif txns_h24_total >= 12:
-            candidate.unique_external_wallets_1h = 3
-        else:
-            candidate.unique_external_wallets_1h = 1
-
-        # No true launch timestamp from current candidate feed.
-        # Use pairCreatedAt if available as a weak proxy.
-        pair_created_at = best_pair.get("pairCreatedAt")
-        if pair_created_at:
-            candidate.time_to_first_liquidity = 300
-        else:
-            candidate.time_to_first_liquidity = None
-
-        dex_id = best_pair.get("dexId")
-        if dex_id:
-            candidate.recognized_factory = True
-            candidate.recognized_factory_name = dex_id
-
-        candidate.raw_refs["best_pair"] = {
-            "pairAddress": best_pair.get("pairAddress"),
-            "dexId": best_pair.get("dexId"),
-            "url": best_pair.get("url"),
-            "liquidity_usd": liquidity,
-            "volume_h24": volume_24h,
+        tx_payload = {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "getTransaction",
+            "params": [
+                sig,
+                {"encoding": "json", "maxSupportedTransactionVersion": 0}
+            ],
         }
 
+        try:
+            tx = request_json("POST", SOLANA_RPC_URL, json_body=tx_payload, timeout=20, retries=0)
+            result = tx.get("result")
+            if not result:
+                continue
+            tx_count += 1
+
+            account_keys = result.get("transaction", {}).get("message", {}).get("accountKeys", [])
+            for k in account_keys[:10]:
+                if isinstance(k, dict):
+                    pubkey = k.get("pubkey")
+                else:
+                    pubkey = k
+                if pubkey and pubkey != token_address:
+                    wallets.add(pubkey)
+        except Exception:
+            continue
+
+    return {
+        "tx_count_1h": tx_count,
+        "unique_external_wallets_1h": len(wallets),
+    }
+
+
+def _etherscan_activity_proxy(chain: str, token_address: str) -> Dict[str, int]:
+    if not ETHERSCAN_API_KEY:
+        return {"tx_count_1h": 0, "unique_external_wallets_1h": 0, "metadata": {}}
+
+    chainid = CHAIN_TO_ETHERSCAN_ID[chain]
+    metadata = {}
+
+    # tokeninfo may be throttled / paid-plan gated; fail soft.
+    try:
+        meta_resp = request_json(
+            "GET",
+            "https://api.etherscan.io/v2/api",
+            params={
+                "chainid": chainid,
+                "module": "token",
+                "action": "tokeninfo",
+                "contractaddress": token_address,
+                "apikey": ETHERSCAN_API_KEY,
+            },
+            timeout=20,
+            retries=0,
+        )
+        metadata = meta_resp
+    except Exception:
+        metadata = {}
+
+    try:
+        tx_resp = request_json(
+            "GET",
+            "https://api.etherscan.io/v2/api",
+            params={
+                "chainid": chainid,
+                "module": "account",
+                "action": "tokentx",
+                "contractaddress": token_address,
+                "page": 1,
+                "offset": 25,
+                "sort": "desc",
+                "apikey": ETHERSCAN_API_KEY,
+            },
+            timeout=20,
+            retries=1,
+        )
+        rows = tx_resp.get("result", []) if isinstance(tx_resp, dict) else []
+    except Exception:
+        rows = []
+
+    wallets = set()
+    tx_count = 0
+
+    for row in rows[:25]:
+        frm = row.get("from")
+        to = row.get("to")
+        if frm:
+            wallets.add(frm.lower())
+        if to:
+            wallets.add(to.lower())
+        tx_count += 1
+
+    return {
+        "tx_count_1h": tx_count,
+        "unique_external_wallets_1h": len(wallets),
+        "metadata": metadata,
+    }
+
+
+def enrich_market_data(item: dict) -> dict:
+    pair = item.get("raw", {}).get("pair", {})
+    txns_h1 = pair.get("txns", {}).get("h1", {}) if pair else {}
+
+    item["liquidity_usd"] = safe_float((pair.get("liquidity") or {}).get("usd"), 0.0)
+    item["volume_usd_24h"] = safe_float((pair.get("volume") or {}).get("h24"), 0.0)
+    item["price_usd"] = safe_float(pair.get("priceUsd"), 0.0)
+
+    # DexScreener txns are first proxy.
+    dex_tx_count_1h = safe_float(txns_h1.get("buys"), 0) + safe_float(txns_h1.get("sells"), 0)
+
+    chain = item["chain"]
+    address = item["address"]
+
+    if chain == "solana":
+        proxy = _solana_activity_proxy(address)
+        item["tx_count_1h"] = max(int(dex_tx_count_1h), int(proxy["tx_count_1h"]))
+        item["unique_external_wallets_1h"] = int(proxy["unique_external_wallets_1h"])
     else:
-        candidate.liquidity_usd = 0.0
-        candidate.tx_count_1h = 0
-        candidate.unique_external_wallets_1h = 0
-        candidate.time_to_first_liquidity = None
+        proxy = _etherscan_activity_proxy(chain, address)
+        item["tx_count_1h"] = max(int(dex_tx_count_1h), int(proxy["tx_count_1h"]))
+        item["unique_external_wallets_1h"] = int(proxy["unique_external_wallets_1h"])
+        item["raw"]["etherscan_metadata"] = proxy.get("metadata", {})
 
-    if candidate.website:
-        candidate.deployer_quality_score = max(candidate.deployer_quality_score, 0.35)
+    # paid order / promoted metadata
+    try:
+        orders = orders_for_token(chain, address)
+    except Exception:
+        orders = []
 
-    if candidate.social_confidence >= 0.4:
-        candidate.deployer_quality_score = max(candidate.deployer_quality_score, 0.5)
-
-    if candidate.liquidity_usd >= 10000:
-        candidate.deployer_quality_score = max(candidate.deployer_quality_score, 0.6)
-
-    return candidate
+    item["raw"]["orders"] = orders
+    return item
