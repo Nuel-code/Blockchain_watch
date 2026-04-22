@@ -1,16 +1,39 @@
-from __future__ import annotations
 import os
-from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 
+CHAINS = ["solana", "base", "ethereum"]
 
-def utc_now():
-    return datetime.now(timezone.utc)
+DATA_DIR = "data"
+STATE_DIR = "state"
 
+DEFAULT_BACKFILL_START = "2026-01-01"
+MAX_PER_DAY = 500
 
-@dataclass
-class Config:
-    start_date: str = os.getenv("START_DATE", f"{utc_now().year}-01-01")
-    end_date: str = os.getenv("END_DATE", utc_now().strftime("%Y-%m-%d"))
-    daily_cap: int = int(os.getenv("DAILY_CAP", "500"))
-    max_days_per_run: int = int(os.getenv("MAX_DAYS_PER_RUN", "1"))
+ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY", "").strip()
+SOLANA_RPC_URL = os.getenv("SOLANA_RPC_URL", "").strip() or "https://api.mainnet-beta.solana.com"
+
+BACKFILL_START_OVERRIDE = os.getenv("BACKFILL_START_OVERRIDE", "").strip()
+BACKFILL_END_OVERRIDE = os.getenv("BACKFILL_END_OVERRIDE", "").strip()
+
+TODAY_UTC = datetime.utcnow().strftime("%Y-%m-%d")
+
+CHAIN_TO_ETHERSCAN_ID = {
+    "ethereum": "1",
+    "base": "8453",
+}
+
+RECOGNIZED_FACTORIES = {
+    "solana": {
+        "raydium", "meteora", "orca", "pumpfun", "jupiter", "moonshot"
+    },
+    "base": {
+        "uniswap", "aerodrome", "baseswap", "alienbase", "sushiswap"
+    },
+    "ethereum": {
+        "uniswap", "sushiswap", "pancakeswap", "balancer", "curve"
+    },
+}
+
+MIN_LIQUIDITY_USD = 500.0
+MIN_TX_COUNT_1H = 3
+MIN_UNIQUE_WALLETS_1H = 3
