@@ -1,110 +1,103 @@
-from __future__ import annotations
 import re
-import requests
-from bs4 import BeautifulSoup
-from src.models import Candidate, Socials
+from typing import Dict, List, Optional, Tuple
+
+from src.models import empty_socials
+from src.utils import first_non_empty, request_text
 
 
-SOCIAL_PATTERNS = {
-    "twitter": r"https?://(?:www\.)?(?:x|twitter)\.com/[^\s\"'<>]+",
-    "telegram": r"https?://(?:t\.me|telegram\.me)/[^\s\"'<>]+",
-    "discord": r"https?://(?:discord\.gg|discord\.com/invite)/[^\s\"'<>]+",
-    "github": r"https?://(?:www\.)?github\.com/[^\s\"'<>]+",
-}
+URL_RE = re.compile(r'https?://[^\s"\'<>]+', re.IGNORECASE)
+
+TWITTER_RE = re.compile(r'https?://(?:www\.)?(?:twitter\.com|x\.com)/[A-Za-z0-9_]+', re.IGNORECASE)
+TELEGRAM_RE = re.compile(r'https?://(?:www\.)?t\.me/[A-Za-z0-9_/\-]+', re.IGNORECASE)
+DISCORD_RE = re.compile(r'https?://(?:www\.)?(?:discord\.gg|discord\.com/invite)/[A-Za-z0-9]+', re.IGNORECASE)
+GITHUB_RE = re.compile(r'https?://(?:www\.)?github\.com/[A-Za-z0-9_.\-]+(?:/[A-Za-z0-9_.\-]+)?', re.IGNORECASE)
+DOCS_RE = re.compile(r'https?://[^\s"\'<>]*(?:docs|documentation|gitbook)[^\s"\'<>]*', re.IGNORECASE)
 
 
-def extract_from_links(links: list[dict]) -> tuple[Socials, float]:
-    socials = Socials()
-    confidence = 0.0
+def _extract_links_from_profile(profile: dict) -> Dict[str, Optional[str]]:
+    socials = empty_socials()
 
-    for link in links:
-        url = link.get("url")
-        if not url:
+    links = profile.get("links") or []
+    url = profile.get("url")
+
+    if isinstance(url, str) and url.startswith("http"):
+        socials["website"] = url
+
+    for item in links:
+        link_type = (item.get("type") or "").lower()
+        link_url = item.get("url")
+        if not link_url:
             continue
 
-        for key, pattern in SOCIAL_PATTERNS.items():
-            if re.search(pattern, url, re.IGNORECASE):
-                setattr(socials, key, url)
-                confidence += 0.15
+        if link_type in {"website", "site", "web"}:
+            socials["website"] = first_non_empty(socials["website"], link_url)
+        elif link_type in {"twitter", "x"}:
+            socials["twitter_x"] = first_non_empty(socials["twitter_x"], link_url)
+        elif link_type == "telegram":
+            socials["telegram"] = first_non_empty(socials["telegram"], link_url)
+        elif link_type == "discord":
+            socials["discord"] = first_non_empty(socials["discord"], link_url)
+        elif link_type == "github":
+            socials["github"] = first_non_empty(socials["github"], link_url)
+        elif link_type in {"docs", "documentation"}:
+            socials["docs"] = first_non_empty(socials["docs"], link_url)
 
-        if "docs" in url.lower() or "gitbook" in url.lower():
-            socials.docs = url
-            confidence += 0.10
-
-    return socials, min(confidence, 0.8)
+    return socials
 
 
-def scrape_website(url: str) -> tuple[Socials, float] | None:
+def _extract_links_from_website(website_url: str) -> Dict[str, Optional[str]]:
+    socials = empty_socials()
     try:
-        r = requests.get(url, timeout=12, headers={"User-Agent": "Mozilla/5.0"})
-        r.raise_for_status()
+        html = request_text(website_url, timeout=15, retries=1)
     except Exception:
-        return None
+        return socials
 
-    soup = BeautifulSoup(r.text, "lxml")
-    hrefs = [a.get("href") for a in soup.find_all("a", href=True)]
-    text = "\n".join(h for h in hrefs if h)
-
-    socials = Socials()
-    confidence = 0.0
-
-    for key, pattern in SOCIAL_PATTERNS.items():
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            setattr(socials, key, match.group(0))
-            confidence += 0.2
-
-    for h in hrefs:
-        if not h:
-            continue
-        if "docs" in h.lower() or "gitbook" in h.lower():
-            socials.docs = h
-            confidence += 0.1
-            break
-
-    return socials, min(confidence, 0.9)
+    urls = set(URL_RE.findall(html))
+    socials["twitter_x"] = next(iter([u for u in urls if TWITTER_RE.search(u)]), None)
+    socials["telegram"] = next(iter([u for u in urls if TELEGRAM_RE.search(u)]), None)
+    socials["discord"] = next(iter([u for u in urls if DISCORD_RE.search(u)]), None)
+    socials["github"] = next(iter([u for u in urls if GITHUB_RE.search(u)]), None)
+    socials["docs"] = next(iter([u for u in urls if DOCS_RE.search(u)]), None)
+    socials["website"] = website_url
+    return socials
 
 
-def merge_socials(base: Socials, new: Socials) -> Socials:
-    merged = base.model_copy(deep=True)
-    for field in merged.model_fields:
-        if getattr(merged, field) is None and getattr(new, field) is not None:
-            setattr(merged, field, getattr(new, field))
-    return merged
+def enrich_socials(item: dict) -> dict:
+    profile = item.get("raw", {}).get("profile", {})
+    pair = item.get("raw", {}).get("pair", {})
 
+    profile_socials = _extract_links_from_profile(profile)
 
-def has_any_socials(s: Socials) -> bool:
-    return any(getattr(s, field) for field in s.model_fields)
+    # aggregator-derived fallback
+    pair_info = pair.get("info", {}) if isinstance(pair, dict) else {}
+    aggregator_socials = empty_socials()
+    if pair_info:
+        websites = pair_info.get("websites") or []
+        socials_list = pair_info.get("socials") or []
 
+        if websites and isinstance(websites, list):
+            aggregator_socials["website"] = websites[0].get("url") if isinstance(websites[0], dict) else None
 
-def resolve_socials(candidate: Candidate) -> Candidate:
-    sources: list[tuple[str, Socials, float]] = []
+        for s in socials_list:
+            stype = (s.get("type") or "").lower()
+            surl = s.get("url")
+            if stype in {"twitter", "x"}:
+                aggregator_socials["twitter_x"] = surl
+            elif stype == "telegram":
+                aggregator_socials["telegram"] = surl
+            elif stype == "discord":
+                aggregator_socials["discord"] = surl
 
-    links = candidate.raw_refs.get("links", [])
-    if links:
-        s, conf = extract_from_links(links)
-        if has_any_socials(s):
-            sources.append(("dexscreener_links", s, conf))
+    website = first_non_empty(profile_socials["website"], aggregator_socials["website"])
+    website_scraped = _extract_links_from_website(website) if website else empty_socials()
 
-    if candidate.website:
-        result = scrape_website(candidate.website)
-        if result:
-            s, conf = result
-            if has_any_socials(s):
-                sources.append(("website_scrape", s, conf))
+    merged = empty_socials()
+    for key in merged.keys():
+        merged[key] = first_non_empty(
+            profile_socials.get(key),
+            aggregator_socials.get(key),
+            website_scraped.get(key),
+        )
 
-    if not sources:
-        return candidate
-
-    final = Socials()
-    best_conf = 0.0
-
-    for _, s, conf in sources:
-        final = merge_socials(final, s)
-        best_conf = max(best_conf, conf)
-
-    candidate.socials = final
-    candidate.social_source = "combined" if len(sources) > 1 else sources[0][0]
-    candidate.social_confidence = min(best_conf, 1.0)
-
-    return candidate
+    item["socials"] = merged
+    return item
