@@ -1,10 +1,4 @@
 {
-  "mode": "backfill",
-  "start_date": "2026-01-01",
-  "end_date": "2026-01-03",
-  "last_completed_day": "2026-01-03",
-  "next_day": "2026-01-04",
-  "status": "running",
-  "updated_at": "2026-04-21T15:10:03.225941+00:00",
-  "version": 1
+  "last_completed_date": null,
+  "status": "idle"
 }
