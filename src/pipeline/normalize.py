@@ -1,60 +1,65 @@
-from src.models import empty_socials, make_id
-from src.utils import first_non_empty
+from typing import Any, Dict
+
+from src.models import base_candidate
+from src.utils import clean_text, first_non_empty, unix_to_iso
 
 
-def normalize_candidate(candidate: dict, best_pair: dict, target_date: str) -> dict:
-    chain = candidate["chain"]
-    address = candidate["token_address"]
-    base_token = best_pair.get("baseToken", {}) if best_pair else {}
-    quote_token = best_pair.get("quoteToken", {}) if best_pair else {}
+def normalize_evm_creation(raw: Dict[str, Any], chain: str, snapshot_date: str) -> Dict[str, Any]:
+    """
+    Normalize an EVM creation-like row into the shared candidate schema.
 
-    base_address = (base_token.get("address") or "").lower()
-
-    name = first_non_empty(
-        base_token.get("name"),
-        candidate.get("profile", {}).get("description"),
-        "Unknown",
+    Works with:
+    - factory scan rows
+    - direct contract creation rows
+    - future explorer/indexer rows
+    """
+    address = first_non_empty(
+        raw.get("contract_address"),
+        raw.get("contractAddress"),
+        raw.get("address"),
+        raw.get("to"),
     )
-    symbol = first_non_empty(base_token.get("symbol"), "UNKNOWN")
 
-    object_type = "token"
+    item = base_candidate(
+        chain=chain,
+        address=address,
+        object_type="unknown_contract",
+        snapshot_date=snapshot_date,
+        source=raw.get("source") or "evm_creation",
+    )
 
-    normalized = {
-        "id": make_id(chain, object_type, address),
-        "object_type": object_type,
-        "chain": chain,
-        "address": address,
-        "pair_address": best_pair.get("pairAddress"),
-        "name": name,
-        "symbol": symbol,
-        "first_seen": target_date,
-        "snapshot_date": target_date,
-        "quote_symbol": quote_token.get("symbol"),
-        "quote_address": quote_token.get("address"),
-        "dex_id": best_pair.get("dexId"),
-        "recognized_factory": best_pair.get("dexId"),
-        "liquidity_usd": 0.0,
-        "tx_count_1h": 0,
-        "unique_external_wallets_1h": 0,
-        "volume_usd_24h": 0.0,
-        "price_usd": 0.0,
-        "socials": empty_socials(),
-        "signals": {},
-        "risk_scores": {},
-        "scores": {},
-        "labels": [],
-        "action": "ignore",
-        "why_kept": [],
-        "why_flagged": [],
-        "source": candidate.get("source"),
-        "discovery_meta": {
-            "bucket": candidate.get("discovery_bucket"),
-            "profile_url": candidate.get("profile", {}).get("url"),
-            "base_token_matches_candidate": base_address == address.lower() if base_address else None,
-        },
-        "raw": {
-            "profile": candidate.get("profile", {}),
-            "pair": best_pair or {},
-        },
-    }
-    return normalized
+    item["creator"] = first_non_empty(raw.get("creator"), raw.get("from"))
+    item["creation_tx"] = first_non_empty(raw.get("creation_tx"), raw.get("hash"))
+    item["created_block"] = first_non_empty(raw.get("block_number"), raw.get("blockNumber"))
+    item["created_at"] = unix_to_iso(first_non_empty(raw.get("timestamp"), raw.get("timeStamp")))
+    item["raw"]["discovery"] = raw
+
+    return item
+
+
+def normalize_visible_token_candidate(raw: Dict[str, Any], snapshot_date: str) -> Dict[str, Any]:
+    """
+    Normalize DexScreener visible candidates.
+
+    Used especially for Solana, and as backup candidates for EVM.
+    """
+    chain = raw["chain"]
+    address = raw["address"]
+
+    item = base_candidate(
+        chain=chain,
+        address=address,
+        object_type=raw.get("object_type_hint") or "token",
+        snapshot_date=snapshot_date,
+        source=raw.get("source") or "visible_candidate",
+    )
+
+    profile = raw.get("raw", {}) or {}
+
+    item["name"] = clean_text(first_non_empty(profile.get("description"), profile.get("name")))
+    item["symbol"] = clean_text(profile.get("symbol"))
+    item["description"] = clean_text(profile.get("description"))
+    item["raw"]["profile"] = profile
+    item["raw"]["discovery_bucket"] = raw.get("discovery_bucket")
+
+    return item
