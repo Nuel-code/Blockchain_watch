@@ -1,1 +1,37 @@
-{}
+{
+  "2026-01-01": {
+    "count": 167,
+    "actions": {
+      "watch_now": 14,
+      "research": 87,
+      "ignore": 66
+    },
+    "top_ids": [
+      "ethereum:token:0xc5d6a7b61d18afa11435a889557b068bb9f29930",
+      "ethereum:token:0x57ab1e0003f623289cd798b1824be09a793e4bec",
+      "ethereum:token:0x5702a4487da07c827cde512e2d5969cb430cd839",
+      "ethereum:unknown_contract:0xcc72a24452cdae7889c90f654db47f66b646931d",
+      "ethereum:unknown_contract:0xb47f575807fc5466285e1277ef8acfbb5c6686e8",
+      "solana:token:9hhhep7jgvnctdp52rlctrk6ysvfysgyt7f5wvglpump",
+      "solana:token:9kcgjplub1twq6nwhd51jgqjsd8lgc1xzvyiocawpump",
+      "ethereum:token:0x66a0f676479cee1d7373f3dc2e2952778bff5bd6",
+      "solana:token:8gxlxka8tf3h8jukxffp4dnyn6d2vvwygif5wanrpump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:gmjzhrcks11evc1hzyckiys8gbxfr6bywhgrxjrpump",
+      "solana:token:5lztpu8h4v1d4gtg2mhmf6gdfgzamyq1ulswh3ripump",
+      "solana:token:ai5miuswahmzi2bwaaksvraui8og3xrx1n24cygpump",
+      "ethereum:token:0x45547ab0100f5e8b158258b6d94d7586de69fc21",
+      "solana:token:dvbssxfdy2wqnmhqu8ehzkwdpfd5hwcdbrhrhvfzpump",
+      "ethereum:token:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c",
+      "solana:token:cajtthvc878f8cz4zewdvgjkjfm7rbyn8mb1go1cpump",
+      "solana:token:8fqfb7c3pnjlrf2koghwcfjbs5y1bg9orhwbq8mkpump",
+      "solana:token:gcfoekaskohafkobr99y93osa3zxtdk3seceka2zpump",
+      "solana:token:xgbmlzy8r7ijn96huatiyv3vtj3o1vyjpvzsz7zpump",
+      "solana:token:bnxwvsvzygbxtudydqhzjvfbqgvezeipy4zdmqcbpump",
+      "solana:token:dacyvx34v5aqaehn3mzgyxpfoyqyhzsnfafw3t2vbonk",
+      "solana:token:6qwcicn3idwtniwsdyytn95lfz59rjfparumpmnrpump",
+      "solana:token:ggielnjhjwywsvscvnc2xb2qn1k3yhjypngzy9c2bonk",
+      "solana:token:drrcvcwhunjqrj81lhvkc1wzlirxyncq7ctilrfypump"
+    ]
+  }
+}
