@@ -1,7 +1,8 @@
 import json
 import os
+import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Iterable, List, Optional
 
 import requests
@@ -14,6 +15,7 @@ def ensure_dir(path: str) -> None:
 def load_json(path: str, default: Any) -> Any:
     if not os.path.exists(path):
         return default
+
     try:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -25,6 +27,7 @@ def save_json(path: str, data: Any) -> None:
     parent = os.path.dirname(path)
     if parent:
         ensure_dir(parent)
+
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -32,10 +35,13 @@ def save_json(path: str, data: Any) -> None:
 def append_unique(existing: List[dict], new_items: List[dict], key: str = "id") -> List[dict]:
     seen = {item.get(key) for item in existing}
     out = list(existing)
+
     for item in new_items:
-        if item.get(key) not in seen:
+        value = item.get(key)
+        if value and value not in seen:
             out.append(item)
-            seen.add(item.get(key))
+            seen.add(value)
+
     return out
 
 
@@ -43,14 +49,34 @@ def utc_today() -> str:
     return datetime.utcnow().strftime("%Y-%m-%d")
 
 
-def parse_date(s: str) -> datetime:
-    return datetime.strptime(s, "%Y-%m-%d")
+def parse_date(date_str: str) -> datetime:
+    return datetime.strptime(date_str, "%Y-%m-%d")
+
+
+def date_to_unix_start(date_str: str) -> int:
+    dt = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    return int(dt.timestamp())
+
+
+def date_to_unix_end(date_str: str) -> int:
+    dt = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    dt = dt + timedelta(days=1) - timedelta(seconds=1)
+    return int(dt.timestamp())
+
+
+def unix_to_iso(value: Any) -> Optional[str]:
+    try:
+        ts = int(value)
+        return datetime.utcfromtimestamp(ts).isoformat() + "Z"
+    except Exception:
+        return None
 
 
 def daterange(start_date: str, end_date: str) -> Iterable[str]:
     start = parse_date(start_date)
     end = parse_date(end_date)
     cursor = start
+
     while cursor <= end:
         yield cursor.strftime("%Y-%m-%d")
         cursor += timedelta(days=1)
@@ -58,36 +84,32 @@ def daterange(start_date: str, end_date: str) -> Iterable[str]:
 
 def previous_n_dates(anchor_date: str, n: int) -> List[str]:
     anchor = parse_date(anchor_date)
-    out = []
-    for i in range(1, n + 1):
-        out.append((anchor - timedelta(days=i)).strftime("%Y-%m-%d"))
-    return out
-
-
-def iso_from_unix(ts: Optional[int]) -> Optional[str]:
-    if ts is None:
-        return None
-    try:
-        return datetime.utcfromtimestamp(int(ts)).isoformat() + "Z"
-    except Exception:
-        return None
+    return [
+        (anchor - timedelta(days=i)).strftime("%Y-%m-%d")
+        for i in range(1, n + 1)
+    ]
 
 
 def safe_float(value: Any, default: float = 0.0) -> float:
     try:
-        if value is None or value == "":
+        if value in [None, ""]:
             return default
         return float(value)
     except Exception:
         return default
 
 
-def clamp01(x: float) -> float:
-    if x < 0:
-        return 0.0
-    if x > 1:
-        return 1.0
-    return x
+def safe_int(value: Any, default: int = 0) -> int:
+    try:
+        if value in [None, ""]:
+            return default
+        return int(float(value))
+    except Exception:
+        return default
+
+
+def clamp01(value: float) -> float:
+    return max(0.0, min(1.0, value))
 
 
 def count_non_empty(values: Iterable[Any]) -> int:
@@ -95,10 +117,37 @@ def count_non_empty(values: Iterable[Any]) -> int:
 
 
 def first_non_empty(*values: Any) -> Any:
-    for v in values:
-        if v:
-            return v
+    for value in values:
+        if value not in [None, "", [], {}]:
+            return value
     return None
+
+
+def normalize_url(url: Optional[str]) -> Optional[str]:
+    if not url:
+        return None
+
+    url = str(url).strip()
+    if not url:
+        return None
+
+    if url.startswith("//"):
+        return "https:" + url
+
+    if not url.startswith("http://") and not url.startswith("https://"):
+        return "https://" + url
+
+    return url
+
+
+def clean_text(value: Any) -> Optional[str]:
+    if value is None:
+        return None
+
+    text = str(value).strip()
+    text = re.sub(r"\s+", " ", text)
+
+    return text or None
 
 
 def request_json(
@@ -106,31 +155,38 @@ def request_json(
     url: str,
     *,
     params: Optional[Dict[str, Any]] = None,
-    json_body: Optional[Dict[str, Any]] = None,
+    json_body: Optional[Any] = None,
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 20,
+    timeout: int = 25,
     retries: int = 2,
     sleep_seconds: float = 1.0,
 ) -> Any:
     last_error = None
+
     for attempt in range(retries + 1):
         try:
-            resp = requests.request(
+            response = requests.request(
                 method=method,
                 url=url,
                 params=params,
                 json=json_body,
-                headers=headers,
+                headers=headers or {
+                    "User-Agent": "BlockchainWatch/1.0"
+                },
                 timeout=timeout,
             )
-            if resp.status_code >= 400:
-                last_error = RuntimeError(f"HTTP {resp.status_code}: {resp.text[:300]}")
+
+            if response.status_code >= 400:
+                last_error = RuntimeError(f"HTTP {response.status_code}: {response.text[:300]}")
             else:
-                return resp.json()
-        except Exception as e:
-            last_error = e
+                return response.json()
+
+        except Exception as exc:
+            last_error = exc
+
         if attempt < retries:
             time.sleep(sleep_seconds)
+
     raise last_error
 
 
@@ -142,21 +198,26 @@ def request_text(
     sleep_seconds: float = 1.0,
 ) -> str:
     last_error = None
+
     for attempt in range(retries + 1):
         try:
-            resp = requests.get(
+            response = requests.get(
                 url,
                 timeout=timeout,
                 headers={
                     "User-Agent": "Mozilla/5.0 (compatible; BlockchainWatch/1.0)"
                 },
             )
-            if resp.status_code >= 400:
-                last_error = RuntimeError(f"HTTP {resp.status_code}")
+
+            if response.status_code >= 400:
+                last_error = RuntimeError(f"HTTP {response.status_code}")
             else:
-                return resp.text
-        except Exception as e:
-            last_error = e
+                return response.text
+
+        except Exception as exc:
+            last_error = exc
+
         if attempt < retries:
             time.sleep(sleep_seconds)
+
     raise last_error
