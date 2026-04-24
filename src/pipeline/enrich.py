@@ -1,183 +1,204 @@
-from collections import Counter
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 
-from src.clients.dexscreener import orders_for_token, token_pairs
-from src.config import CHAIN_TO_ETHERSCAN_ID, ETHERSCAN_API_KEY, SOLANA_RPC_URL
-from src.utils import request_json, safe_float
-
-
-def select_best_pair(chain: str, token_address: str) -> dict:
-    pairs = token_pairs(chain, token_address)
-    if not pairs:
-        return {}
-
-    def pair_score(p: dict) -> float:
-        liquidity = safe_float((p.get("liquidity") or {}).get("usd"), 0.0)
-        volume = safe_float((p.get("volume") or {}).get("h24"), 0.0)
-        txns_h1 = p.get("txns", {}).get("h1", {})
-        tx_count_1h = safe_float(txns_h1.get("buys"), 0) + safe_float(txns_h1.get("sells"), 0)
-        return liquidity * 1.0 + volume * 0.2 + tx_count_1h * 10
-
-    pairs = sorted(pairs, key=pair_score, reverse=True)
-    return pairs[0]
+from src.clients.dexscreener import get_best_pair_for_token, orders_for_token
+from src.clients.etherscan import (
+    get_contract_abi,
+    get_contract_creation,
+    get_contract_source,
+    get_token_info,
+    get_token_transfers,
+)
+from src.config import RECOGNIZED_DEX_IDS
+from src.pipeline.classify import classify_evm_contract
+from src.utils import first_non_empty, safe_float, safe_int, unix_to_iso
 
 
-def _solana_activity_proxy(token_address: str) -> Dict[str, int]:
-    # MVP proxy: fetch recent signatures for the token address, then inspect up to 15 txs.
-    payload = {
-        "jsonrpc": "2.0",
-        "id": 1,
-        "method": "getSignaturesForAddress",
-        "params": [
-            token_address,
-            {"limit": 15}
-        ],
-    }
-
-    try:
-        data = request_json("POST", SOLANA_RPC_URL, json_body=payload, timeout=20, retries=1)
-        signatures = data.get("result", []) if isinstance(data, dict) else []
-    except Exception:
-        return {"tx_count_1h": 0, "unique_external_wallets_1h": 0}
-
-    tx_count = 0
+def _extract_wallets_from_token_transfers(transfers: List[Dict[str, Any]]) -> Set[str]:
     wallets = set()
 
-    for row in signatures[:15]:
-        sig = row.get("signature")
-        block_time = row.get("blockTime")
-        if not sig:
-            continue
+    for tx in transfers:
+        frm = tx.get("from")
+        to = tx.get("to")
 
-        tx_payload = {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "method": "getTransaction",
-            "params": [
-                sig,
-                {"encoding": "json", "maxSupportedTransactionVersion": 0}
-            ],
-        }
-
-        try:
-            tx = request_json("POST", SOLANA_RPC_URL, json_body=tx_payload, timeout=20, retries=0)
-            result = tx.get("result")
-            if not result:
-                continue
-            tx_count += 1
-
-            account_keys = result.get("transaction", {}).get("message", {}).get("accountKeys", [])
-            for k in account_keys[:10]:
-                if isinstance(k, dict):
-                    pubkey = k.get("pubkey")
-                else:
-                    pubkey = k
-                if pubkey and pubkey != token_address:
-                    wallets.add(pubkey)
-        except Exception:
-            continue
-
-    return {
-        "tx_count_1h": tx_count,
-        "unique_external_wallets_1h": len(wallets),
-    }
-
-
-def _etherscan_activity_proxy(chain: str, token_address: str) -> Dict[str, int]:
-    if not ETHERSCAN_API_KEY:
-        return {"tx_count_1h": 0, "unique_external_wallets_1h": 0, "metadata": {}}
-
-    chainid = CHAIN_TO_ETHERSCAN_ID[chain]
-    metadata = {}
-
-    # tokeninfo may be throttled / paid-plan gated; fail soft.
-    try:
-        meta_resp = request_json(
-            "GET",
-            "https://api.etherscan.io/v2/api",
-            params={
-                "chainid": chainid,
-                "module": "token",
-                "action": "tokeninfo",
-                "contractaddress": token_address,
-                "apikey": ETHERSCAN_API_KEY,
-            },
-            timeout=20,
-            retries=0,
-        )
-        metadata = meta_resp
-    except Exception:
-        metadata = {}
-
-    try:
-        tx_resp = request_json(
-            "GET",
-            "https://api.etherscan.io/v2/api",
-            params={
-                "chainid": chainid,
-                "module": "account",
-                "action": "tokentx",
-                "contractaddress": token_address,
-                "page": 1,
-                "offset": 25,
-                "sort": "desc",
-                "apikey": ETHERSCAN_API_KEY,
-            },
-            timeout=20,
-            retries=1,
-        )
-        rows = tx_resp.get("result", []) if isinstance(tx_resp, dict) else []
-    except Exception:
-        rows = []
-
-    wallets = set()
-    tx_count = 0
-
-    for row in rows[:25]:
-        frm = row.get("from")
-        to = row.get("to")
         if frm:
             wallets.add(frm.lower())
+
         if to:
             wallets.add(to.lower())
-        tx_count += 1
 
-    return {
-        "tx_count_1h": tx_count,
-        "unique_external_wallets_1h": len(wallets),
-        "metadata": metadata,
-    }
+    return wallets
 
 
-def enrich_market_data(item: dict) -> dict:
-    pair = item.get("raw", {}).get("pair", {})
-    txns_h1 = pair.get("txns", {}).get("h1", {}) if pair else {}
+def _is_deployer_only(transfers: List[Dict[str, Any]], creator: str | None) -> bool | None:
+    if not transfers:
+        return None
 
-    item["liquidity_usd"] = safe_float((pair.get("liquidity") or {}).get("usd"), 0.0)
-    item["volume_usd_24h"] = safe_float((pair.get("volume") or {}).get("h24"), 0.0)
-    item["price_usd"] = safe_float(pair.get("priceUsd"), 0.0)
+    if not creator:
+        return None
 
-    # DexScreener txns are first proxy.
-    dex_tx_count_1h = safe_float(txns_h1.get("buys"), 0) + safe_float(txns_h1.get("sells"), 0)
+    creator = creator.lower()
+    wallets = _extract_wallets_from_token_transfers(transfers)
 
+    # zero address should not count as a real participant
+    wallets.discard("0x0000000000000000000000000000000000000000")
+
+    if not wallets:
+        return None
+
+    return wallets == {creator}
+
+
+def enrich_evm_contract(item: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    EVM enrichment for Ethereum/Base:
+      - source metadata / verification
+      - ABI-based classification
+      - token info if available
+      - transfer/wallet activity proxy
+      - contract creation info if available
+    """
     chain = item["chain"]
     address = item["address"]
 
-    if chain == "solana":
-        proxy = _solana_activity_proxy(address)
-        item["tx_count_1h"] = max(int(dex_tx_count_1h), int(proxy["tx_count_1h"]))
-        item["unique_external_wallets_1h"] = int(proxy["unique_external_wallets_1h"])
-    else:
-        proxy = _etherscan_activity_proxy(chain, address)
-        item["tx_count_1h"] = max(int(dex_tx_count_1h), int(proxy["tx_count_1h"]))
-        item["unique_external_wallets_1h"] = int(proxy["unique_external_wallets_1h"])
-        item["raw"]["etherscan_metadata"] = proxy.get("metadata", {})
+    source_meta = get_contract_source(chain, address)
+    abi_text = get_contract_abi(chain, address)
 
-    # paid order / promoted metadata
+    token_info = get_token_info(chain, address)
+
+    # Fill token/name metadata from explorer if available.
+    item["name"] = first_non_empty(
+        item.get("name"),
+        token_info.get("tokenName"),
+        token_info.get("name"),
+        source_meta.get("ContractName"),
+    )
+
+    item["symbol"] = first_non_empty(
+        item.get("symbol"),
+        token_info.get("symbol"),
+        token_info.get("tokenSymbol"),
+    )
+
+    item["description"] = first_non_empty(
+        item.get("description"),
+        token_info.get("description"),
+    )
+
+    # Classify after basic metadata fill.
+    item = classify_evm_contract(item, source_meta=source_meta, abi_text=abi_text)
+
+    # Creation info enrichment, if Etherscan gives it.
+    creation_rows = get_contract_creation(chain, [address])
+    if creation_rows:
+        row = creation_rows[0]
+        item["creator"] = first_non_empty(item.get("creator"), row.get("contractCreator"))
+        item["creation_tx"] = first_non_empty(item.get("creation_tx"), row.get("txHash"))
+        item["raw"]["contract_creation"] = row
+
+    # Activity proxy: token transfers.
+    transfers = get_token_transfers(chain, address, offset=100, sort="desc")
+
+    wallets = _extract_wallets_from_token_transfers(transfers)
+    wallets.discard("0x0000000000000000000000000000000000000000")
+
+    item["activity_signals"].update(
+        {
+            "transfer_count": len(transfers),
+            "unique_wallets": len(wallets),
+            "tx_count_sample": len(transfers),
+            "unique_wallets_sample": len(wallets),
+            "deployer_only": _is_deployer_only(transfers, item.get("creator")),
+            "activity_continues": len(transfers) >= 5 and len(wallets) >= 3,
+        }
+    )
+
+    item["raw"]["etherscan_source"] = source_meta
+    item["raw"]["etherscan_token_info"] = token_info
+    item["raw"]["token_transfer_sample"] = transfers[:20]
+
+    return item
+
+
+def enrich_market_data(item: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    DexScreener market enrichment.
+
+    Market data is no longer discovery truth. It is just a signal.
+    """
+    chain = item["chain"]
+    address = item["address"]
+
+    pair = get_best_pair_for_token(chain, address)
+
+    if not pair:
+        item["market_signals"].update(
+            {
+                "dex_listed": False,
+                "dex_id": None,
+                "pair_address": None,
+                "liquidity_usd": 0.0,
+                "volume_usd_24h": 0.0,
+                "price_usd": 0.0,
+                "recognized_dex": False,
+            }
+        )
+        return item
+
+    dex_id = (pair.get("dexId") or "").lower()
+    recognized = dex_id in RECOGNIZED_DEX_IDS.get(chain, set())
+
+    liquidity_usd = safe_float((pair.get("liquidity") or {}).get("usd"), 0.0)
+    volume_usd_24h = safe_float((pair.get("volume") or {}).get("h24"), 0.0)
+    price_usd = safe_float(pair.get("priceUsd"), 0.0)
+
+    txns_h1 = pair.get("txns", {}).get("h1", {}) or {}
+    dex_tx_count_1h = safe_int(txns_h1.get("buys")) + safe_int(txns_h1.get("sells"))
+
+    item["market_signals"].update(
+        {
+            "dex_listed": True,
+            "dex_id": dex_id,
+            "pair_address": pair.get("pairAddress"),
+            "liquidity_usd": liquidity_usd,
+            "volume_usd_24h": volume_usd_24h,
+            "price_usd": price_usd,
+            "recognized_dex": recognized,
+            "dex_tx_count_1h": dex_tx_count_1h,
+        }
+    )
+
+    # Use DEX tx count as extra activity signal, but do not overwrite stronger explorer/RPC activity.
+    item["activity_signals"]["tx_count_sample"] = max(
+        safe_int(item["activity_signals"].get("tx_count_sample")),
+        dex_tx_count_1h,
+    )
+
+    base_token = pair.get("baseToken") or {}
+    item["name"] = first_non_empty(item.get("name"), base_token.get("name"))
+    item["symbol"] = first_non_empty(item.get("symbol"), base_token.get("symbol"))
+
+    item["raw"]["dexscreener_pair"] = pair
+
     try:
-        orders = orders_for_token(chain, address)
+        item["raw"]["dexscreener_orders"] = orders_for_token(chain, address)
     except Exception:
-        orders = []
+        item["raw"]["dexscreener_orders"] = []
 
-    item["raw"]["orders"] = orders
+    return item
+
+
+def enrich_candidate(item: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Main enrichment entrypoint.
+
+    Solana candidates are partially enriched in the adapter because Helius/RPC verification
+    happens there. Here we still add market data.
+
+    EVM candidates get source/activity enrichment here.
+    """
+    if item["chain"] in {"base", "ethereum"}:
+        item = enrich_evm_contract(item)
+
+    item = enrich_market_data(item)
+
     return item
