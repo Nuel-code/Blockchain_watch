@@ -54,6 +54,20 @@ def empty_market_signals() -> Dict[str, Any]:
     }
 
 
+def empty_cluster_signals() -> Dict[str, Any]:
+    return {
+        "cluster_size": 1,
+        "same_creator_nearby_contracts": 0,
+        "creator_tx_sample_size": 0,
+        "creator_spammy": False,
+        "has_project_cluster": False,
+        "has_utility_contract_hint": False,
+        "has_proxy_or_implementation_pattern": False,
+        "cluster_score": 0.0,
+        "related_contracts": [],
+    }
+
+
 def base_candidate(
     *,
     chain: str,
@@ -79,6 +93,7 @@ def base_candidate(
         "contract_signals": empty_contract_signals(),
         "activity_signals": empty_activity_signals(),
         "market_signals": empty_market_signals(),
+        "cluster_signals": empty_cluster_signals(),
         "socials": empty_socials(),
         "scores": {
             "project_likelihood_score": 0.0,
