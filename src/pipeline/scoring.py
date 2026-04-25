@@ -57,6 +57,7 @@ def _watch_support_count(
     volume_liquidity_ratio: float,
     unique_wallets: int,
     verified_or_metadata: bool,
+    cluster_score: float,
 ) -> int:
     support = 0
 
@@ -78,6 +79,9 @@ def _watch_support_count(
     if verified_or_metadata:
         support += 1
 
+    if cluster_score >= 0.35:
+        support += 1
+
     return support
 
 
@@ -85,6 +89,7 @@ def score_item(item: Dict) -> Dict:
     contract = item.get("contract_signals", {}) or {}
     activity = item.get("activity_signals", {}) or {}
     market = item.get("market_signals", {}) or {}
+    cluster = item.get("cluster_signals", {}) or {}
     socials = item.get("socials", {}) or {}
 
     signal_count = count_project_signals(item)
@@ -127,21 +132,24 @@ def score_item(item: Dict) -> Dict:
 
     socials_score = _social_score(socials)
     momentum_score = clamp01(item.get("scores", {}).get("momentum_score", 0.0))
-    project_signal_score = clamp01(signal_count / 7.0)
+    project_signal_score = clamp01(signal_count / 9.0)
+
+    cluster_score = clamp01(safe_float(cluster.get("cluster_score"), 0.0))
 
     verified_or_metadata = bool(
         contract.get("verified_contract")
         or contract.get("has_metadata")
-        or item.get("chain") == "solana" and contract.get("bytecode_known")
+        or (item.get("chain") == "solana" and contract.get("bytecode_known"))
     )
 
     economic_activity_score = clamp01(
-        0.28 * wallet_score
-        + 0.22 * tx_score
-        + 0.18 * liquidity_score
-        + 0.17 * volume_score
+        0.26 * wallet_score
+        + 0.21 * tx_score
+        + 0.17 * liquidity_score
+        + 0.16 * volume_score
         + 0.10 * dex_score
         + 0.05 * recognized_dex_score
+        + 0.05 * cluster_score
     )
 
     spam_risk_score = 0.0
@@ -182,6 +190,12 @@ def score_item(item: Dict) -> Dict:
     elif liquidity_usd >= STALE_LIQUIDITY_CHECK_MIN_USD and vl_ratio < STALE_VOLUME_LIQUIDITY_RATIO:
         spam_risk_score += 0.12
 
+    if cluster.get("creator_spammy"):
+        spam_risk_score += 0.22
+
+    if cluster_score == 0 and item.get("chain") in {"base", "ethereum"}:
+        spam_risk_score += 0.04
+
     if "suspicious_name_pattern" in item.get("labels", []):
         spam_risk_score += 0.08
 
@@ -191,27 +205,29 @@ def score_item(item: Dict) -> Dict:
     spam_risk_score = clamp01(spam_risk_score)
 
     project_likelihood_score = clamp01(
-        0.14 * verified_score
-        + 0.13 * metadata_score
-        + 0.11 * standard_score
-        + 0.15 * wallet_score
-        + 0.10 * tx_score
-        + 0.16 * socials_score
-        + 0.07 * dex_score
+        0.13 * verified_score
+        + 0.12 * metadata_score
+        + 0.10 * standard_score
+        + 0.13 * wallet_score
+        + 0.09 * tx_score
+        + 0.15 * socials_score
+        + 0.10 * cluster_score
+        + 0.06 * dex_score
         + 0.04 * recognized_dex_score
-        + 0.05 * project_signal_score
-        + 0.05 * momentum_score
+        + 0.04 * project_signal_score
+        + 0.04 * momentum_score
         - 0.34 * spam_risk_score
     )
 
     confidence_score = clamp01(
-        0.20 * project_signal_score
-        + 0.16 * wallet_score
-        + 0.18 * socials_score
+        0.18 * project_signal_score
+        + 0.15 * wallet_score
+        + 0.17 * socials_score
         + 0.12 * metadata_score
         + 0.10 * verified_score
         + 0.12 * economic_activity_score
-        + 0.12 * (1.0 - spam_risk_score)
+        + 0.08 * cluster_score
+        + 0.08 * (1.0 - spam_risk_score)
     )
 
     watch_support_count = _watch_support_count(
@@ -221,6 +237,7 @@ def score_item(item: Dict) -> Dict:
         volume_liquidity_ratio=vl_ratio,
         unique_wallets=unique_wallets,
         verified_or_metadata=verified_or_metadata,
+        cluster_score=cluster_score,
     )
 
     watch_block_reasons = []
@@ -231,14 +248,17 @@ def score_item(item: Dict) -> Dict:
     if spam_risk_score > 0.35:
         watch_block_reasons.append("spam_risk_above_0_35")
 
-    if socials_score == 0 and dex_tx_count_1h == 0:
-        watch_block_reasons.append("no_socials_and_zero_recent_dex_tx")
+    if socials_score == 0 and dex_tx_count_1h == 0 and cluster_score < 0.35:
+        watch_block_reasons.append("no_socials_zero_recent_dex_no_cluster")
 
     if liquidity_usd >= STALE_LIQUIDITY_CHECK_MIN_USD and vl_ratio < EXTREME_STALE_VOLUME_LIQUIDITY_RATIO:
         watch_block_reasons.append("extremely_stale_liquidity")
 
     if activity.get("deployer_only") is True:
         watch_block_reasons.append("deployer_only_activity")
+
+    if cluster.get("creator_spammy"):
+        watch_block_reasons.append("creator_spammy")
 
     if watch_support_count < 3:
         watch_block_reasons.append(f"watch_support_count_below_3={watch_support_count}")
@@ -283,6 +303,7 @@ def score_item(item: Dict) -> Dict:
         "dex_score": round(dex_score, 4),
         "recognized_dex_score": round(recognized_dex_score, 4),
         "project_signal_score": round(project_signal_score, 4),
+        "cluster_score": round(cluster_score, 4),
         "volume_liquidity_ratio": round(vl_ratio, 6),
         "watch_support_count": watch_support_count,
         "watch_block_reasons": watch_block_reasons,
