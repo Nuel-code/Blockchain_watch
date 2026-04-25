@@ -8,6 +8,7 @@ def count_project_signals(item: Dict[str, Any]) -> int:
     contract = item.get("contract_signals", {})
     activity = item.get("activity_signals", {})
     market = item.get("market_signals", {})
+    cluster = item.get("cluster_signals", {})
     socials = item.get("socials", {})
 
     signal_count = 0
@@ -33,6 +34,15 @@ def count_project_signals(item: Dict[str, Any]) -> int:
     if market.get("liquidity_usd", 0) > 0:
         signal_count += 1
 
+    if cluster.get("has_project_cluster"):
+        signal_count += 2
+
+    if cluster.get("has_utility_contract_hint"):
+        signal_count += 1
+
+    if cluster.get("has_proxy_or_implementation_pattern"):
+        signal_count += 1
+
     if count_non_empty(socials.values()) > 0:
         signal_count += 1
 
@@ -46,7 +56,7 @@ def apply_fodder_filter(item: Dict[str, Any]) -> Dict[str, Any]:
     """
     Not a brutal liquidity gate.
 
-    This detects obvious garbage, then leaves scoring to rank the survivors.
+    Detect obvious garbage, reward project-shape signals, leave final ranking to scoring.
     """
     why_kept = item.get("why_kept", [])
     why_flagged = item.get("why_flagged", [])
@@ -55,6 +65,7 @@ def apply_fodder_filter(item: Dict[str, Any]) -> Dict[str, Any]:
     contract = item.get("contract_signals", {})
     activity = item.get("activity_signals", {})
     market = item.get("market_signals", {})
+    cluster = item.get("cluster_signals", {})
     socials = item.get("socials", {})
 
     signal_count = count_project_signals(item)
@@ -88,6 +99,14 @@ def apply_fodder_filter(item: Dict[str, Any]) -> Dict[str, Any]:
     if market.get("liquidity_usd", 0) > 0:
         labels.append("has_liquidity")
         why_kept.append(f"liquidity_usd={market.get('liquidity_usd')}")
+
+    if cluster.get("has_project_cluster"):
+        labels.append("project_deployment_cluster")
+        why_kept.append(f"cluster_size={cluster.get('cluster_size')}")
+
+    if cluster.get("creator_spammy"):
+        labels.append("creator_spammy")
+        why_flagged.append("creator_spammy_cluster_pattern")
 
     if activity.get("unique_wallets", 0) >= 2 or activity.get("unique_wallets_sample", 0) >= 2:
         labels.append("multi_wallet_activity")
