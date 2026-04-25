@@ -9,6 +9,7 @@ from src.pipeline.aggregate import rank_and_limit, summarize_actions
 from src.pipeline.enrich import enrich_candidate
 from src.pipeline.filtering import apply_filters
 from src.pipeline.momentum import apply_momentum
+from src.pipeline.project_cluster import apply_project_cluster
 from src.pipeline.scoring import score_item
 from src.pipeline.socials import enrich_socials
 from src.pipeline.storage import store_snapshot, update_seen_ids
@@ -29,12 +30,14 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
     """
     Full processing path:
       enrich market/contract/activity
+      apply deployment cluster analysis
       extract socials
       apply fodder flags
       apply momentum
       score
     """
     item = enrich_candidate(item)
+    item = apply_project_cluster(item)
     item = enrich_socials(item)
     item = apply_filters(item)
     item = apply_momentum(item, target_date)
@@ -45,7 +48,6 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
     item["why_flagged"] = list(dict.fromkeys(item.get("why_flagged", [])))
 
     # Avoid storing giant raw blobs forever.
-    # Keep enough debug info, but don't let all.json become obese.
     if "raw" in item:
         item["raw"] = {
             "source": item.get("source"),
@@ -55,6 +57,9 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
             "discovery_bucket": item["raw"].get("discovery_bucket"),
             "solana_activity_source": item["raw"].get("solana_activity_source"),
             "score_components": item["raw"].get("score_components"),
+            "volume_liquidity_ratio": item["raw"].get("volume_liquidity_ratio"),
+            "has_any_social": item["raw"].get("has_any_social"),
+            "dex_tx_count_1h": item["raw"].get("dex_tx_count_1h"),
         }
 
     return item
@@ -76,7 +81,6 @@ def run_daily_for_date(target_date: str, store: bool = True) -> List[Dict]:
             processed.append(item)
 
         except Exception as exc:
-            # Keep pipeline alive. One ugly token should not kill the run.
             item.setdefault("why_flagged", [])
             item.setdefault("labels", [])
             item.setdefault("raw", {})
