@@ -9,6 +9,7 @@ from src.pipeline.aggregate import rank_and_limit, summarize_actions
 from src.pipeline.enrich import enrich_candidate
 from src.pipeline.filtering import apply_filters
 from src.pipeline.momentum import apply_momentum
+from src.pipeline.name_quality import assess_name_quality
 from src.pipeline.project_cluster import apply_project_cluster
 from src.pipeline.scoring import score_item
 from src.pipeline.socials import enrich_socials
@@ -27,16 +28,8 @@ def discover_all_candidates(target_date: str) -> List[Dict]:
 
 
 def process_candidate(item: Dict, target_date: str) -> Dict:
-    """
-    Full processing path:
-      enrich market/contract/activity
-      apply deployment cluster analysis
-      extract socials
-      apply fodder flags
-      apply momentum
-      score
-    """
     item = enrich_candidate(item)
+    item = assess_name_quality(item)
     item = apply_project_cluster(item)
     item = enrich_socials(item)
     item = apply_filters(item)
@@ -47,7 +40,6 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
     item["why_kept"] = list(dict.fromkeys(item.get("why_kept", [])))
     item["why_flagged"] = list(dict.fromkeys(item.get("why_flagged", [])))
 
-    # Avoid storing giant raw blobs forever.
     if "raw" in item:
         item["raw"] = {
             "source": item.get("source"),
