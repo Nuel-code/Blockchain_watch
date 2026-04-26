@@ -68,5 +68,40 @@
       "solana:token:fbwrqbqfk6ldfqn8dhvo3jz25jrvijknobbvnt9pump",
       "solana:token:diyuy3xkeg8zbjoix9i38ofhmjtocntzfynwjqxbpump"
     ]
+  },
+  "2026-04-26": {
+    "count": 74,
+    "actions": {
+      "watch_now": 0,
+      "research": 70,
+      "ignore": 4
+    },
+    "top_ids": [
+      "solana:token:5gtpspc2ricugwiyq4ghausg8fsq7ucrggsvacatcoin",
+      "solana:token:bfiguxnidogqczapvpdzrcfhx3nxnflyqpquaugpump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:j6df8htjxd66r4q9wnx2xfdbenkg1kwszdbbgxjrpump",
+      "solana:token:7ev9shfbb5ngtgcfvbqpvuvvtw3d6emr3dpmh8rbpump",
+      "solana:token:hgxywhhdngfh7fpojtuwgnub7vahtpebvbo1u73tpump",
+      "solana:token:hon2rhaiqkcdtuzl5ga2vjxpr7t1mpck2ut2ahkcpump",
+      "solana:token:3tygkwke2y3rxdw9oslrspxpxmsc1c1oo19w9khspump",
+      "solana:token:228wpsgbwkerndhgntoxxgm3jkwoxcnz6bqx1zgjpump",
+      "solana:token:tvqg8dntzviaqwpyn5whzuumt5saa1xhvddmujtmeal",
+      "solana:token:fi53jwrdo5uff9ccijbw2cpdj6mbvp8oyi7pbmc7pump",
+      "solana:token:9tcjczfwaqmfsfkiydragd3kxchxvguhdcreb6espump",
+      "solana:token:3hpjukcu2bs2hgnwrknnyfnmkubjnsappm6mzrh7pump",
+      "solana:token:eqwjxdydfic8d7vx85ftw2lru2bfuib1bbxnxeqzpump",
+      "solana:token:dacyvx34v5aqaehn3mzgyxpfoyqyhzsnfafw3t2vbonk",
+      "solana:token:aeqnchmvpxzcnchjb5igu1ggbrj8jy3vn8zm53g7pump",
+      "solana:token:cajtthvc878f8cz4zewdvgjkjfm7rbyn8mb1go1cpump",
+      "solana:token:estjhnwna39zg55elbiouxouwrb4utzaq6fh7jarpump",
+      "ethereum:token:0xb91339a885cadf33c7d001726aca1398cabccae3",
+      "solana:token:dpoytbimxfj6ffy5ntixqce5gemzahp5fl7gcpfepump",
+      "solana:token:7nzuyzyznof9gf3zr9qhdnxpq1mtm8ln3vajuhrgbonk",
+      "solana:token:79yc3bkcghkvg7imkadkvfu2kdrk3v6ruq2ilfogpump",
+      "solana:token:ghk9ywdt8sah2ek5dojbvpy1foszz1fgpqy1rqszpump",
+      "solana:token:cntevmkdmergkruegjp4o9wheywdufqxb4qet1sdpump",
+      "solana:token:eno6h8oq9hatkshtlpxga7iikjhj3o7h9za9zfbspump"
+    ]
   }
 }
