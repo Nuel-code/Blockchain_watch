@@ -199,7 +199,15 @@ def score_item(item: Dict) -> Dict:
     if "suspicious_name_pattern" in item.get("labels", []):
         spam_risk_score += 0.08
 
-    if item.get("raw", {}).get("hard_ignore"):
+    name_quality_score = item.get("name_quality", {}).get("score", 0.0)
+
+    if name_quality_score < 0.25:
+        spam_risk_score += 0.18
+
+    elif name_quality_score < 0.45:
+        spam_risk_score += 0.10
+
+   if item.get("raw", {}).get("hard_ignore"):
         spam_risk_score += 0.40
 
     spam_risk_score = clamp01(spam_risk_score)
