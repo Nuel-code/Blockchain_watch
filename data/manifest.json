@@ -103,5 +103,145 @@
       "solana:token:cntevmkdmergkruegjp4o9wheywdufqxb4qet1sdpump",
       "solana:token:eno6h8oq9hatkshtlpxga7iikjhj3o7h9za9zfbspump"
     ]
+  },
+  "2026-01-02": {
+    "count": 168,
+    "actions": {
+      "watch_now": 0,
+      "research": 59,
+      "ignore": 109
+    },
+    "top_ids": [
+      "solana:token:bwugjbqffm4hm49w7nsmphstjm4dba5stuo4w7iwpump",
+      "solana:token:sse79ump3tryydxewu8zjcgzrvtidep4dnzc7vapump",
+      "solana:token:3tygkwke2y3rxdw9oslrspxpxmsc1c1oo19w9khspump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:m6xrwncfyxlnot6trw4cnvkm371eq3rjhh2z3ahpump",
+      "solana:token:8dyxmhnswcvwcjndfxe2g85ikplobr4chwfv9ykwpump",
+      "solana:token:7ev9shfbb5ngtgcfvbqpvuvvtw3d6emr3dpmh8rbpump",
+      "solana:token:69hznsz3xdhytebrrsn5nfbjpiryhhbyjzugdx3qxh69",
+      "solana:token:cajtthvc878f8cz4zewdvgjkjfm7rbyn8mb1go1cpump",
+      "solana:token:ava8yucsd2yguspdv3hb2cjpdf8xahgwyxmchxwopump",
+      "solana:token:ba8pe9vy7gnybmlofzw5c8xaezjf4xgt94sihb7bpump",
+      "solana:token:4v5myn67lwmpvn96xmdpjxwlmyc2imycyq3cz9aqpump",
+      "solana:token:3hpjukcu2bs2hgnwrknnyfnmkubjnsappm6mzrh7pump",
+      "solana:token:g6w2kgtsmjtubmepmbpxadbkznr6e38wbj7cvwnpump",
+      "solana:token:gfkmfusasxwnwuf4wzrsrrnebwhtkc7kyajlh6skpump",
+      "solana:token:ejy599u1pfjlev5vznpejumaacumb7uww7rumzxnpump",
+      "solana:token:4dcuxltfwtadvxrzydsczggvkcr12bkrfyvbboevpump",
+      "solana:token:ghnq3d8v1zkdkukcwy6ciygadyuqjqgjq7fbv4v1m4kd",
+      "solana:token:95dnougjuhprqggogc6aee6hv2pq23ag9thy6zbppump",
+      "solana:token:ffvp48wygusxccnp3n9zu5g7f2yatwxqhbpd2mkkpump",
+      "solana:token:3hmwvlnxjwx9ek631yx7s2fhsoizmpxnpxqumrbh3aln",
+      "solana:token:6umohajojc1zucbemcwgsnittdvyr5yen5vmgejupump",
+      "solana:token:aeqnchmvpxzcnchjb5igu1ggbrj8jy3vn8zm53g7pump",
+      "solana:token:gbbarjuzueki9gakmnoatbtzjpxixeiq6oengur5pump",
+      "solana:token:3dwzjfz16r4ubbbhk7k3s3rxgmjjuvd2qhzdwj7kpump"
+    ]
+  },
+  "2026-01-03": {
+    "count": 159,
+    "actions": {
+      "watch_now": 0,
+      "research": 59,
+      "ignore": 100
+    },
+    "top_ids": [
+      "solana:token:bwugjbqffm4hm49w7nsmphstjm4dba5stuo4w7iwpump",
+      "solana:token:sse79ump3tryydxewu8zjcgzrvtidep4dnzc7vapump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:3tygkwke2y3rxdw9oslrspxpxmsc1c1oo19w9khspump",
+      "solana:token:m6xrwncfyxlnot6trw4cnvkm371eq3rjhh2z3ahpump",
+      "solana:token:8dyxmhnswcvwcjndfxe2g85ikplobr4chwfv9ykwpump",
+      "solana:token:7ev9shfbb5ngtgcfvbqpvuvvtw3d6emr3dpmh8rbpump",
+      "solana:token:cajtthvc878f8cz4zewdvgjkjfm7rbyn8mb1go1cpump",
+      "solana:token:69hznsz3xdhytebrrsn5nfbjpiryhhbyjzugdx3qxh69",
+      "solana:token:ava8yucsd2yguspdv3hb2cjpdf8xahgwyxmchxwopump",
+      "solana:token:ghnq3d8v1zkdkukcwy6ciygadyuqjqgjq7fbv4v1m4kd",
+      "solana:token:ba8pe9vy7gnybmlofzw5c8xaezjf4xgt94sihb7bpump",
+      "solana:token:3hpjukcu2bs2hgnwrknnyfnmkubjnsappm6mzrh7pump",
+      "solana:token:4v5myn67lwmpvn96xmdpjxwlmyc2imycyq3cz9aqpump",
+      "solana:token:g6w2kgtsmjtubmepmbpxadbkznr6e38wbj7cvwnpump",
+      "solana:token:ejy599u1pfjlev5vznpejumaacumb7uww7rumzxnpump",
+      "solana:token:gfkmfusasxwnwuf4wzrsrrnebwhtkc7kyajlh6skpump",
+      "solana:token:95dnougjuhprqggogc6aee6hv2pq23ag9thy6zbppump",
+      "solana:token:ffvp48wygusxccnp3n9zu5g7f2yatwxqhbpd2mkkpump",
+      "solana:token:3hmwvlnxjwx9ek631yx7s2fhsoizmpxnpxqumrbh3aln",
+      "solana:token:6umohajojc1zucbemcwgsnittdvyr5yen5vmgejupump",
+      "solana:token:7nzuyzyznof9gf3zr9qhdnxpq1mtm8ln3vajuhrgbonk",
+      "solana:token:aeqnchmvpxzcnchjb5igu1ggbrj8jy3vn8zm53g7pump",
+      "solana:token:gbbarjuzueki9gakmnoatbtzjpxixeiq6oengur5pump",
+      "solana:token:3dwzjfz16r4ubbbhk7k3s3rxgmjjuvd2qhzdwj7kpump"
+    ]
+  },
+  "2026-01-04": {
+    "count": 161,
+    "actions": {
+      "watch_now": 0,
+      "research": 60,
+      "ignore": 101
+    },
+    "top_ids": [
+      "solana:token:bwugjbqffm4hm49w7nsmphstjm4dba5stuo4w7iwpump",
+      "solana:token:sse79ump3tryydxewu8zjcgzrvtidep4dnzc7vapump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:m6xrwncfyxlnot6trw4cnvkm371eq3rjhh2z3ahpump",
+      "solana:token:7ev9shfbb5ngtgcfvbqpvuvvtw3d6emr3dpmh8rbpump",
+      "solana:token:8dyxmhnswcvwcjndfxe2g85ikplobr4chwfv9ykwpump",
+      "solana:token:69hznsz3xdhytebrrsn5nfbjpiryhhbyjzugdx3qxh69",
+      "solana:token:3tygkwke2y3rxdw9oslrspxpxmsc1c1oo19w9khspump",
+      "solana:token:4v5myn67lwmpvn96xmdpjxwlmyc2imycyq3cz9aqpump",
+      "solana:token:ava8yucsd2yguspdv3hb2cjpdf8xahgwyxmchxwopump",
+      "solana:token:ba8pe9vy7gnybmlofzw5c8xaezjf4xgt94sihb7bpump",
+      "solana:token:3hpjukcu2bs2hgnwrknnyfnmkubjnsappm6mzrh7pump",
+      "solana:token:g6w2kgtsmjtubmepmbpxadbkznr6e38wbj7cvwnpump",
+      "solana:token:a72y3n2sgfyg3lktdudkabajampkplx1fx1ffne7pump",
+      "solana:token:ejy599u1pfjlev5vznpejumaacumb7uww7rumzxnpump",
+      "solana:token:4dcuxltfwtadvxrzydsczggvkcr12bkrfyvbboevpump",
+      "solana:token:ghnq3d8v1zkdkukcwy6ciygadyuqjqgjq7fbv4v1m4kd",
+      "solana:token:gfkmfusasxwnwuf4wzrsrrnebwhtkc7kyajlh6skpump",
+      "solana:token:cajtthvc878f8cz4zewdvgjkjfm7rbyn8mb1go1cpump",
+      "solana:token:6umohajojc1zucbemcwgsnittdvyr5yen5vmgejupump",
+      "solana:token:95dnougjuhprqggogc6aee6hv2pq23ag9thy6zbppump",
+      "solana:token:3hmwvlnxjwx9ek631yx7s2fhsoizmpxnpxqumrbh3aln",
+      "solana:token:ffvp48wygusxccnp3n9zu5g7f2yatwxqhbpd2mkkpump",
+      "solana:token:7nzuyzyznof9gf3zr9qhdnxpq1mtm8ln3vajuhrgbonk",
+      "solana:token:aeqnchmvpxzcnchjb5igu1ggbrj8jy3vn8zm53g7pump"
+    ]
+  },
+  "2026-01-05": {
+    "count": 160,
+    "actions": {
+      "watch_now": 0,
+      "research": 64,
+      "ignore": 96
+    },
+    "top_ids": [
+      "ethereum:token:0xcc72a24452cdae7889c90f654db47f66b646931d",
+      "solana:token:bwugjbqffm4hm49w7nsmphstjm4dba5stuo4w7iwpump",
+      "solana:token:sse79ump3tryydxewu8zjcgzrvtidep4dnzc7vapump",
+      "solana:token:8dyxmhnswcvwcjndfxe2g85ikplobr4chwfv9ykwpump",
+      "solana:token:7ev9shfbb5ngtgcfvbqpvuvvtw3d6emr3dpmh8rbpump",
+      "solana:token:34q2kmcvapecjgr6zrtbctrzzvtkt3a5mhea3tueswyb",
+      "solana:token:69hznsz3xdhytebrrsn5nfbjpiryhhbyjzugdx3qxh69",
+      "solana:token:m6xrwncfyxlnot6trw4cnvkm371eq3rjhh2z3ahpump",
+      "solana:token:3tygkwke2y3rxdw9oslrspxpxmsc1c1oo19w9khspump",
+      "solana:token:a72y3n2sgfyg3lktdudkabajampkplx1fx1ffne7pump",
+      "solana:token:4v5myn67lwmpvn96xmdpjxwlmyc2imycyq3cz9aqpump",
+      "solana:token:ava8yucsd2yguspdv3hb2cjpdf8xahgwyxmchxwopump",
+      "solana:token:ba8pe9vy7gnybmlofzw5c8xaezjf4xgt94sihb7bpump",
+      "solana:token:3hpjukcu2bs2hgnwrknnyfnmkubjnsappm6mzrh7pump",
+      "solana:token:g6w2kgtsmjtubmepmbpxadbkznr6e38wbj7cvwnpump",
+      "solana:token:ghnq3d8v1zkdkukcwy6ciygadyuqjqgjq7fbv4v1m4kd",
+      "solana:token:gfkmfusasxwnwuf4wzrsrrnebwhtkc7kyajlh6skpump",
+      "solana:token:6umohajojc1zucbemcwgsnittdvyr5yen5vmgejupump",
+      "solana:token:3hmwvlnxjwx9ek631yx7s2fhsoizmpxnpxqumrbh3aln",
+      "solana:token:95dnougjuhprqggogc6aee6hv2pq23ag9thy6zbppump",
+      "solana:token:7nzuyzyznof9gf3zr9qhdnxpq1mtm8ln3vajuhrgbonk",
+      "solana:token:ejy599u1pfjlev5vznpejumaacumb7uww7rumzxnpump",
+      "solana:token:ffvp48wygusxccnp3n9zu5g7f2yatwxqhbpd2mkkpump",
+      "solana:token:4dcuxltfwtadvxrzydsczggvkcr12bkrfyvbboevpump",
+      "solana:token:aeqnchmvpxzcnchjb5igu1ggbrj8jy3vn8zm53g7pump"
+    ]
   }
 }
