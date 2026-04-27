@@ -96,6 +96,7 @@ def score_item(item: Dict) -> Dict:
 
     verified_score = 1.0 if contract.get("verified_contract") else 0.0
     metadata_score = 1.0 if contract.get("has_metadata") else 0.0
+    name_quality_score = safe_float(item.get("name_quality", {}).get("score"), 0.0)
 
     standard_score = 0.0
     if contract.get("erc20"):
@@ -123,17 +124,14 @@ def score_item(item: Dict) -> Dict:
 
     wallet_score = _log_scaled(unique_wallets, 150)
     tx_score = _log_scaled(tx_count, 300)
-
     liquidity_score = _log_scaled(liquidity_usd, 100_000)
     volume_score = _log_scaled(volume_usd_24h, 100_000)
 
     dex_score = 1.0 if market.get("dex_listed") else 0.0
     recognized_dex_score = 1.0 if market.get("recognized_dex") else 0.0
-
     socials_score = _social_score(socials)
     momentum_score = clamp01(item.get("scores", {}).get("momentum_score", 0.0))
     project_signal_score = clamp01(signal_count / 9.0)
-
     cluster_score = clamp01(safe_float(cluster.get("cluster_score"), 0.0))
 
     verified_or_metadata = bool(
@@ -186,7 +184,6 @@ def score_item(item: Dict) -> Dict:
 
     if liquidity_usd >= STALE_LIQUIDITY_CHECK_MIN_USD and vl_ratio < EXTREME_STALE_VOLUME_LIQUIDITY_RATIO:
         spam_risk_score += 0.22
-
     elif liquidity_usd >= STALE_LIQUIDITY_CHECK_MIN_USD and vl_ratio < STALE_VOLUME_LIQUIDITY_RATIO:
         spam_risk_score += 0.12
 
@@ -199,15 +196,12 @@ def score_item(item: Dict) -> Dict:
     if "suspicious_name_pattern" in item.get("labels", []):
         spam_risk_score += 0.08
 
-    name_quality_score = item.get("name_quality", {}).get("score", 0.0)
-
     if name_quality_score < 0.25:
         spam_risk_score += 0.18
-
     elif name_quality_score < 0.45:
         spam_risk_score += 0.10
 
-   if item.get("raw", {}).get("hard_ignore"):
+    if item.get("raw", {}).get("hard_ignore"):
         spam_risk_score += 0.40
 
     spam_risk_score = clamp01(spam_risk_score)
@@ -219,7 +213,8 @@ def score_item(item: Dict) -> Dict:
         + 0.13 * wallet_score
         + 0.09 * tx_score
         + 0.15 * socials_score
-        + 0.10 * cluster_score
+        + 0.08 * cluster_score
+        + 0.02 * name_quality_score
         + 0.06 * dex_score
         + 0.04 * recognized_dex_score
         + 0.04 * project_signal_score
@@ -268,6 +263,9 @@ def score_item(item: Dict) -> Dict:
     if cluster.get("creator_spammy"):
         watch_block_reasons.append("creator_spammy")
 
+    if name_quality_score < 0.45:
+        watch_block_reasons.append("poor_name_quality")
+
     if watch_support_count < 3:
         watch_block_reasons.append(f"watch_support_count_below_3={watch_support_count}")
 
@@ -277,14 +275,12 @@ def score_item(item: Dict) -> Dict:
         and not watch_block_reasons
     ):
         action = "watch_now"
-
     elif (
         project_likelihood_score >= 0.42
         and confidence_score >= 0.38
         and not item.get("raw", {}).get("hard_ignore")
     ):
         action = "research"
-
     else:
         action = "ignore"
 
@@ -312,6 +308,7 @@ def score_item(item: Dict) -> Dict:
         "recognized_dex_score": round(recognized_dex_score, 4),
         "project_signal_score": round(project_signal_score, 4),
         "cluster_score": round(cluster_score, 4),
+        "name_quality_score": round(name_quality_score, 4),
         "volume_liquidity_ratio": round(vl_ratio, 6),
         "watch_support_count": watch_support_count,
         "watch_block_reasons": watch_block_reasons,
@@ -319,9 +316,8 @@ def score_item(item: Dict) -> Dict:
 
     item["action"] = action
 
-    if watch_block_reasons:
-        for reason in watch_block_reasons:
-            item["why_flagged"].append(f"watch_block={reason}")
+    for reason in watch_block_reasons:
+        item["why_flagged"].append(f"watch_block={reason}")
 
     if action == "watch_now":
         item["labels"].append("watch_now")
