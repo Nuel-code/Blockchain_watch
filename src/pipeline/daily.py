@@ -11,6 +11,7 @@ from src.pipeline.filtering import apply_filters
 from src.pipeline.momentum import apply_momentum
 from src.pipeline.name_quality import assess_name_quality
 from src.pipeline.project_cluster import apply_project_cluster
+from src.pipeline.project_identity import assess_project_identity
 from src.pipeline.scoring import score_item
 from src.pipeline.socials import enrich_socials
 from src.pipeline.storage import store_snapshot, update_seen_ids
@@ -28,8 +29,21 @@ def discover_all_candidates(target_date: str) -> List[Dict]:
 
 
 def process_candidate(item: Dict, target_date: str) -> Dict:
+    """
+    Full processing path:
+
+    1. Enrich onchain + market data
+    2. Judge name quality
+    3. Judge project identity using description/GitHub/DeFiLlama-style signals
+    4. Analyze deployment cluster
+    5. Extract socials
+    6. Apply filters
+    7. Apply momentum
+    8. Score
+    """
     item = enrich_candidate(item)
     item = assess_name_quality(item)
+    item = assess_project_identity(item)
     item = apply_project_cluster(item)
     item = enrich_socials(item)
     item = apply_filters(item)
