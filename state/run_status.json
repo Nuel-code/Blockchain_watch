@@ -1,9 +1,9 @@
 {
   "mode": "backfill",
   "status": "nothing_to_do",
-  "requested_start": "2026-01-01",
+  "requested_start": "2026-01-04",
   "requested_end": "2026-01-05",
   "effective_start": "2026-01-06",
   "effective_end": "2026-01-05",
-  "updated_at": "2026-04-27T13:14:46.309796Z"
+  "updated_at": "2026-05-01T05:41:05.586026Z"
 }
