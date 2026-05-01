@@ -14,6 +14,11 @@ ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY", "").strip()
 SOLANA_RPC_URL = os.getenv("SOLANA_RPC_URL", "").strip() or "https://api.mainnet-beta.solana.com"
 HELIUS_API_KEY = os.getenv("HELIUS_API_KEY", "").strip()
 
+# Important:
+# OFF for historical backfill speed.
+# ON for daily mode/project-first discovery.
+ENABLE_PROJECT_SEEDS = os.getenv("ENABLE_PROJECT_SEEDS", "0") == "1"
+
 BACKFILL_START_OVERRIDE = os.getenv("BACKFILL_START_OVERRIDE", "").strip()
 BACKFILL_END_OVERRIDE = os.getenv("BACKFILL_END_OVERRIDE", "").strip()
 
@@ -93,22 +98,14 @@ SUSPICIOUS_TOKEN_NAME_TERMS = {
 }
 
 
-# These are not hard gates for final scoring.
-# They are used for obvious-fodder filtering.
 MIN_EXTERNAL_WALLETS_SOFT = 2
 MIN_TRANSFER_COUNT_SOFT = 2
 MIN_SIGNAL_COUNT_FOR_PROJECT_LIKE = 3
 
-
-# Watch-now safety thresholds.
-# Volume is intentionally low because this is early discovery.
-MIN_WATCH_VOLUME_USD_24H = 100.0
+MIN_WATCH_VOLUME_USD_24H = 200.0
 MIN_WATCH_RECENT_DEX_TX_1H = 2
 MIN_WATCH_UNIQUE_WALLETS = 10
 
-# Liquidity can be fake/stale. These ratios help detect liquidity nobody touches.
 STALE_VOLUME_LIQUIDITY_RATIO = 0.005
 EXTREME_STALE_VOLUME_LIQUIDITY_RATIO = 0.001
-
-# If liquidity is above this and volume ratio is terrible, downgrade hard.
 STALE_LIQUIDITY_CHECK_MIN_USD = 10_000.0
