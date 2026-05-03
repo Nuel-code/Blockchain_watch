@@ -1,9 +1,10 @@
 from typing import Dict, List
 
 from src.adapters.base_adapter import discover_base_candidates
+from src.adapters.dune_adapter import discover_dune_candidates
 from src.adapters.ethereum_adapter import discover_ethereum_candidates
 from src.adapters.solana_adapter import discover_solana_candidates
-from src.config import MAX_PER_DAY, TODAY_UTC
+from src.config import ENABLE_DUNE_DISCOVERY, MAX_PER_DAY, TODAY_UTC
 from src.models import dedupe_candidates
 from src.pipeline.aggregate import rank_and_limit, summarize_actions
 from src.pipeline.enrich import enrich_candidate
@@ -20,6 +21,9 @@ from src.utils import load_json
 
 def discover_all_candidates(target_date: str) -> List[Dict]:
     candidates: List[Dict] = []
+
+    if ENABLE_DUNE_DISCOVERY:
+        candidates.extend(discover_dune_candidates(target_date))
 
     candidates.extend(discover_base_candidates(target_date))
     candidates.extend(discover_ethereum_candidates(target_date))
@@ -54,6 +58,7 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
             "volume_liquidity_ratio": item["raw"].get("volume_liquidity_ratio"),
             "has_any_social": item["raw"].get("has_any_social"),
             "dex_tx_count_1h": item["raw"].get("dex_tx_count_1h"),
+            "dune_discovery_source": item["raw"].get("discovery_source"),
         }
 
     return item
