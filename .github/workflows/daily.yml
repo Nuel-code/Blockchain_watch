@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -30,11 +32,16 @@ jobs:
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
           SOLANA_RPC_URL: ${{ secrets.SOLANA_RPC_URL }}
           HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
+
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+          DUNE_BASE_QUERY_ID: "7417262"
+          ENABLE_DUNE_DISCOVERY: "1"
+
+          # Daily can use heavier project-seed discovery.
           ENABLE_PROJECT_SEEDS: "1"
         run: python -m src.pipeline.daily
 
       - name: Commit data/state changes
-        if: always()
         run: |
           git config user.name "blockchain-watch-bot"
           git config user.email "blockchain-watch-bot@users.noreply.github.com"
