@@ -8,7 +8,7 @@ on:
         required: false
         default: "2026-01-01"
       end_date:
-        description: "Backfill end date (YYYY-MM-DD). Keep this to 1 day while tuning."
+        description: "Backfill end date (YYYY-MM-DD). Keep close to start date."
         required: false
         default: "2026-01-01"
 
@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -37,7 +39,15 @@ jobs:
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
           SOLANA_RPC_URL: ${{ secrets.SOLANA_RPC_URL }}
           HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
+
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+          DUNE_BASE_QUERY_ID: "7417262"
+          ENABLE_DUNE_DISCOVERY: "1"
+
+          # Keep project seeds OFF during historical backfill.
+          # Dune is now the discovery engine.
           ENABLE_PROJECT_SEEDS: "0"
+
           BACKFILL_START_OVERRIDE: ${{ github.event.inputs.start_date }}
           BACKFILL_END_OVERRIDE: ${{ github.event.inputs.end_date }}
         run: python -m src.pipeline.backfill
