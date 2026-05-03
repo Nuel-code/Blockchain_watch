@@ -14,6 +14,11 @@ ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY", "").strip()
 SOLANA_RPC_URL = os.getenv("SOLANA_RPC_URL", "").strip() or "https://api.mainnet-beta.solana.com"
 HELIUS_API_KEY = os.getenv("HELIUS_API_KEY", "").strip()
 
+# Dune discovery
+DUNE_API_KEY = os.getenv("DUNE_API_KEY", "").strip()
+DUNE_BASE_QUERY_ID = os.getenv("DUNE_BASE_QUERY_ID", "7417262").strip()
+ENABLE_DUNE_DISCOVERY = os.getenv("ENABLE_DUNE_DISCOVERY", "1") == "1"
+
 # Important:
 # OFF for historical backfill speed.
 # ON for daily mode/project-first discovery.
