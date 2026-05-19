@@ -1,28 +1,12 @@
 from typing import Any, Dict, List, Set
 
 from src.clients.dune import get_latest_query_results, has_dune_key
-from src.config import DUNE_BASE_QUERY_ID
+from src.config import DUNE_BASE_QUERY_ID, MAX_DUNE_CANDIDATES
 from src.models import base_candidate
-from src.utils import clean_text, first_non_empty
+from src.utils import clean_text, first_non_empty, safe_float, safe_int
 
 
 def _normalize_dune_row(row: Dict[str, Any], snapshot_date: str) -> Dict[str, Any]:
-    """
-    Normalize a Dune result row into the same candidate shape used by the pipeline.
-
-    Expected row fields from your Dune query:
-      - chain
-      - address
-      - name
-      - symbol
-      - decimals
-      - first_seen_at
-      - first_seen_date
-      - transfer_count_1d
-      - wallet_touch_count_1d
-      - transfer_volume_usd_1d
-      - discovery_source
-    """
     chain = row.get("chain")
     address = row.get("address")
 
@@ -48,9 +32,9 @@ def _normalize_dune_row(row: Dict[str, Any], snapshot_date: str) -> Dict[str, An
     item["first_seen"] = str(first_non_empty(row.get("first_seen_date"), snapshot_date))
     item["created_at"] = str(row.get("first_seen_at")) if row.get("first_seen_at") else None
 
-    transfer_count = int(row.get("transfer_count_1d") or row.get("transfer_count_3d") or 0)
-    wallet_count = int(row.get("wallet_touch_count_1d") or row.get("wallet_touch_count_3d") or 0)
-    transfer_volume = float(row.get("transfer_volume_usd_1d") or row.get("transfer_volume_usd_3d") or 0)
+    transfer_count = safe_int(row.get("transfer_count_1d") or row.get("transfer_count_3d"), 0)
+    wallet_count = safe_int(row.get("wallet_touch_count_1d") or row.get("wallet_touch_count_3d"), 0)
+    transfer_volume = safe_float(row.get("transfer_volume_usd_1d") or row.get("transfer_volume_usd_3d"), 0.0)
 
     item["activity_signals"].update(
         {
@@ -64,6 +48,11 @@ def _normalize_dune_row(row: Dict[str, Any], snapshot_date: str) -> Dict[str, An
     )
 
     item["market_signals"]["volume_usd_24h"] = transfer_volume
+
+    # Dune rows are already first-seen-ish candidates.
+    item["contract_signals"]["has_metadata"] = bool(item.get("name") or item.get("symbol"))
+    item["contract_signals"]["bytecode_known"] = True
+    item["contract_signals"]["erc20"] = True
 
     item["labels"].append("dune_discovered")
     item["labels"].append("fresh_first_seen_candidate")
@@ -79,15 +68,10 @@ def _normalize_dune_row(row: Dict[str, Any], snapshot_date: str) -> Dict[str, An
 
 
 def discover_dune_candidates(snapshot_date: str) -> List[Dict[str, Any]]:
-    """
-    Dune-powered discovery.
-
-    This should become the main discovery layer once query quality is proven.
-    """
     if not has_dune_key() or not DUNE_BASE_QUERY_ID:
         return []
 
-    rows = get_latest_query_results(DUNE_BASE_QUERY_ID, limit=500)
+    rows = get_latest_query_results(DUNE_BASE_QUERY_ID, limit=MAX_DUNE_CANDIDATES)
 
     out: List[Dict[str, Any]] = []
     seen: Set[str] = set()
