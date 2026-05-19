@@ -4,7 +4,13 @@ from src.adapters.base_adapter import discover_base_candidates
 from src.adapters.dune_adapter import discover_dune_candidates
 from src.adapters.ethereum_adapter import discover_ethereum_candidates
 from src.adapters.solana_adapter import discover_solana_candidates
-from src.config import ENABLE_DUNE_DISCOVERY, MAX_PER_DAY, TODAY_UTC
+from src.config import (
+    ENABLE_DUNE_DISCOVERY,
+    ENABLE_HEAVY_ENRICHMENT,
+    ENABLE_LEGACY_DISCOVERY,
+    MAX_PER_DAY,
+    TODAY_UTC,
+)
 from src.models import dedupe_candidates
 from src.pipeline.aggregate import rank_and_limit, summarize_actions
 from src.pipeline.enrich import enrich_candidate
@@ -25,27 +31,16 @@ def discover_all_candidates(target_date: str) -> List[Dict]:
     if ENABLE_DUNE_DISCOVERY:
         candidates.extend(discover_dune_candidates(target_date))
 
-    candidates.extend(discover_base_candidates(target_date))
-    candidates.extend(discover_ethereum_candidates(target_date))
-    candidates.extend(discover_solana_candidates(target_date))
+    # Legacy discovery is expensive. Keep it OFF for backfill.
+    if ENABLE_LEGACY_DISCOVERY:
+        candidates.extend(discover_base_candidates(target_date))
+        candidates.extend(discover_ethereum_candidates(target_date))
+        candidates.extend(discover_solana_candidates(target_date))
 
     return dedupe_candidates(candidates)
 
 
-def process_candidate(item: Dict, target_date: str) -> Dict:
-    item = enrich_candidate(item)
-    item = assess_name_quality(item)
-    item = assess_project_identity(item)
-    item = apply_project_cluster(item)
-    item = enrich_socials(item)
-    item = apply_filters(item)
-    item = apply_momentum(item, target_date)
-    item = score_item(item)
-
-    item["labels"] = sorted(set(item.get("labels", [])))
-    item["why_kept"] = list(dict.fromkeys(item.get("why_kept", [])))
-    item["why_flagged"] = list(dict.fromkeys(item.get("why_flagged", [])))
-
+def _trim_raw(item: Dict) -> Dict:
     if "raw" in item:
         item["raw"] = {
             "source": item.get("source"),
@@ -62,6 +57,32 @@ def process_candidate(item: Dict, target_date: str) -> Dict:
         }
 
     return item
+
+
+def process_candidate(item: Dict, target_date: str) -> Dict:
+    """
+    Fast mode:
+      Dune discovery + local identity/name/filter/score.
+
+    Heavy mode:
+      Adds Etherscan/DexScreener/social scraping/cluster scans.
+    """
+    if ENABLE_HEAVY_ENRICHMENT:
+        item = enrich_candidate(item)
+        item = apply_project_cluster(item)
+        item = enrich_socials(item)
+
+    item = assess_name_quality(item)
+    item = assess_project_identity(item)
+    item = apply_filters(item)
+    item = apply_momentum(item, target_date)
+    item = score_item(item)
+
+    item["labels"] = sorted(set(item.get("labels", [])))
+    item["why_kept"] = list(dict.fromkeys(item.get("why_kept", [])))
+    item["why_flagged"] = list(dict.fromkeys(item.get("why_flagged", [])))
+
+    return _trim_raw(item)
 
 
 def run_daily_for_date(target_date: str, store: bool = True) -> List[Dict]:
