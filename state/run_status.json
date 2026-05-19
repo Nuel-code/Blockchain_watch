@@ -1,9 +1,14 @@
 {
   "mode": "backfill",
-  "status": "nothing_to_do",
-  "requested_start": "2026-01-01",
-  "requested_end": "2026-01-01",
+  "status": "complete",
+  "days_completed": 2,
+  "items_written_total": 0,
+  "latest_actions": {
+    "watch_now": 0,
+    "research": 0,
+    "ignore": 0
+  },
   "effective_start": "2026-01-08",
-  "effective_end": "2026-01-01",
-  "updated_at": "2026-05-19T16:12:55.262406Z"
+  "effective_end": "2026-01-09",
+  "updated_at": "2026-05-19T17:22:08.968781Z"
 }
