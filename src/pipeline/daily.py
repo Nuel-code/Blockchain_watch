@@ -28,16 +28,35 @@ from src.utils import load_json
 def discover_all_candidates(target_date: str) -> List[Dict]:
     candidates: List[Dict] = []
 
+    print(
+        {
+            "ENABLE_DUNE_DISCOVERY": ENABLE_DUNE_DISCOVERY,
+            "ENABLE_LEGACY_DISCOVERY": ENABLE_LEGACY_DISCOVERY,
+            "ENABLE_HEAVY_ENRICHMENT": ENABLE_HEAVY_ENRICHMENT,
+            "target_date": target_date,
+        }
+    )
+
     if ENABLE_DUNE_DISCOVERY:
-        candidates.extend(discover_dune_candidates(target_date))
+        dune_candidates = discover_dune_candidates(target_date)
+        print({"dune_candidates": len(dune_candidates)})
+        candidates.extend(dune_candidates)
 
-    # Legacy discovery is expensive. Keep it OFF for backfill.
     if ENABLE_LEGACY_DISCOVERY:
-        candidates.extend(discover_base_candidates(target_date))
-        candidates.extend(discover_ethereum_candidates(target_date))
-        candidates.extend(discover_solana_candidates(target_date))
+        legacy_candidates: List[Dict] = []
+        legacy_candidates.extend(discover_base_candidates(target_date))
+        legacy_candidates.extend(discover_ethereum_candidates(target_date))
+        legacy_candidates.extend(discover_solana_candidates(target_date))
+        print({"legacy_candidates": len(legacy_candidates)})
+        candidates.extend(legacy_candidates)
+    else:
+        print({"legacy_candidates": "skipped"})
 
-    return dedupe_candidates(candidates)
+    candidates = dedupe_candidates(candidates)
+
+    print({"total_candidates_after_dedupe": len(candidates)})
+
+    return candidates
 
 
 def _trim_raw(item: Dict) -> Dict:
@@ -60,13 +79,6 @@ def _trim_raw(item: Dict) -> Dict:
 
 
 def process_candidate(item: Dict, target_date: str) -> Dict:
-    """
-    Fast mode:
-      Dune discovery + local identity/name/filter/score.
-
-    Heavy mode:
-      Adds Etherscan/DexScreener/social scraping/cluster scans.
-    """
     if ENABLE_HEAVY_ENRICHMENT:
         item = enrich_candidate(item)
         item = apply_project_cluster(item)
