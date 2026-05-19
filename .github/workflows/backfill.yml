@@ -15,7 +15,7 @@ on:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
 
     permissions:
       contents: write
@@ -44,9 +44,12 @@ jobs:
           DUNE_BASE_QUERY_ID: "7417262"
           ENABLE_DUNE_DISCOVERY: "1"
 
-          # Keep project seeds OFF during historical backfill.
-          # Dune is now the discovery engine.
+          # Fast historical mode
+          ENABLE_LEGACY_DISCOVERY: "0"
+          ENABLE_HEAVY_ENRICHMENT: "0"
           ENABLE_PROJECT_SEEDS: "0"
+          MAX_DUNE_CANDIDATES: "100"
+          MAX_PER_DAY: "100"
 
           BACKFILL_START_OVERRIDE: ${{ github.event.inputs.start_date }}
           BACKFILL_END_OVERRIDE: ${{ github.event.inputs.end_date }}
