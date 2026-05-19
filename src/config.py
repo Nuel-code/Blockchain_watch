@@ -8,7 +8,7 @@ DATA_DIR = "data"
 STATE_DIR = "state"
 
 DEFAULT_BACKFILL_START = "2026-01-01"
-MAX_PER_DAY = 500
+MAX_PER_DAY = int(os.getenv("MAX_PER_DAY", "500"))
 
 ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY", "").strip()
 SOLANA_RPC_URL = os.getenv("SOLANA_RPC_URL", "").strip() or "https://api.mainnet-beta.solana.com"
@@ -18,8 +18,12 @@ HELIUS_API_KEY = os.getenv("HELIUS_API_KEY", "").strip()
 DUNE_API_KEY = os.getenv("DUNE_API_KEY", "").strip()
 DUNE_BASE_QUERY_ID = os.getenv("DUNE_BASE_QUERY_ID", "7417262").strip()
 ENABLE_DUNE_DISCOVERY = os.getenv("ENABLE_DUNE_DISCOVERY", "1") == "1"
+MAX_DUNE_CANDIDATES = int(os.getenv("MAX_DUNE_CANDIDATES", "100"))
 
-# Important:
+# Discovery/performance switches
+ENABLE_LEGACY_DISCOVERY = os.getenv("ENABLE_LEGACY_DISCOVERY", "0") == "1"
+ENABLE_HEAVY_ENRICHMENT = os.getenv("ENABLE_HEAVY_ENRICHMENT", "0") == "1"
+
 # OFF for historical backfill speed.
 # ON for daily mode/project-first discovery.
 ENABLE_PROJECT_SEEDS = os.getenv("ENABLE_PROJECT_SEEDS", "0") == "1"
