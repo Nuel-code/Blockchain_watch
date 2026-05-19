@@ -37,8 +37,12 @@ jobs:
           DUNE_BASE_QUERY_ID: "7417262"
           ENABLE_DUNE_DISCOVERY: "1"
 
-          # Daily can use heavier project-seed discovery.
+          # Daily can be heavier than historical backfill
+          ENABLE_LEGACY_DISCOVERY: "1"
+          ENABLE_HEAVY_ENRICHMENT: "1"
           ENABLE_PROJECT_SEEDS: "1"
+          MAX_DUNE_CANDIDATES: "200"
+          MAX_PER_DAY: "500"
         run: python -m src.pipeline.daily
 
       - name: Commit data/state changes
