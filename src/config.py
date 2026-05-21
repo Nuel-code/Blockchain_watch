@@ -23,7 +23,7 @@ MAX_DUNE_CANDIDATES = int(os.getenv("MAX_DUNE_CANDIDATES", "100"))
 # Discovery/performance switches
 ENABLE_LEGACY_DISCOVERY = os.getenv("ENABLE_LEGACY_DISCOVERY", "0") == "1"
 ENABLE_HEAVY_ENRICHMENT = os.getenv("ENABLE_HEAVY_ENRICHMENT", "0") == "1"
-
+MAX_HEAVY_ENRICH_CANDIDATES = int(os.getenv("MAX_HEAVY_ENRICH_CANDIDATES", "20"))
 # OFF for historical backfill speed.
 # ON for daily mode/project-first discovery.
 ENABLE_PROJECT_SEEDS = os.getenv("ENABLE_PROJECT_SEEDS", "0") == "1"
