@@ -15,7 +15,7 @@ on:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     permissions:
       contents: write
@@ -44,15 +44,26 @@ jobs:
           DUNE_BASE_QUERY_ID: "7417262"
           ENABLE_DUNE_DISCOVERY: "1"
 
-          # Fast historical mode
+          # Historical backfill mode:
+          # Dune is the discovery engine.
+          # Legacy discovery is OFF to avoid Solana/DexScreener noise.
           ENABLE_LEGACY_DISCOVERY: "0"
-          ENABLE_HEAVY_ENRICHMENT: "0"
+
+          # Heavy enrichment is ON only for the top Dune candidates.
+          # This gives scoring enough evidence without timing out.
+          ENABLE_HEAVY_ENRICHMENT: "1"
+          MAX_HEAVY_ENRICH_CANDIDATES: "20"
+
+          # Project seeds stay OFF during backfill.
+          # They are too broad and can pull old projects into historical dates.
           ENABLE_PROJECT_SEEDS: "0"
+
           MAX_DUNE_CANDIDATES: "100"
           MAX_PER_DAY: "100"
 
           BACKFILL_START_OVERRIDE: ${{ github.event.inputs.start_date }}
           BACKFILL_END_OVERRIDE: ${{ github.event.inputs.end_date }}
+
         run: python -m src.pipeline.backfill
 
       - name: Commit data/state changes
