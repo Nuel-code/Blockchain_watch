@@ -1,120 +1,5 @@
 [
   {
-    "id": "base:token:0xe46a9886091b498c684643dd2d45982dee39842b",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0xe46a9886091b498c684643dd2d45982dee39842b",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 10:08:31.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "✅СIRCLE TOKEN DISTRIBUTION",
-    "symbol": "t.me/s/US_POOL | claim until 15",
-    "description": "✅СIRCLE TOKEN DISTRIBUTION",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 110074,
-      "unique_wallets": 111591,
-      "deployer_only": false,
-      "tx_count_sample": 110074,
-      "unique_wallets_sample": 111591,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "generic_or_hype_name",
-      "long_phrase_name",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=110074",
-      "wallet_touch_count=111591"
-    ],
-    "why_flagged": [
-      "name_looks_like_sentence",
-      "generic_or_hype_name",
-      "poor_name_quality_score=0.0",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0xe46a9886091b498c684643dd2d45982dee39842b",
-        "chain": "base",
-        "decimals": 0,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 10:08:31.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "✅СIRCLE TOKEN DISTRIBUTION",
-        "symbol": "t.me/s/US_POOL | claim until 15",
-        "transfer_count_1d": 110074,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 111591
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.0,
-      "name": "✅СIRCLE TOKEN DISTRIBUTION",
-      "symbol": "t.me/s/US_POOL | claim until 15",
-      "word_count": 11
-    }
-  },
-  {
     "id": "base:token:0x67159b4b3311f05647d8f70e09660e270af8d223",
     "chain": "base",
     "object_type": "token",
@@ -206,7 +91,7 @@
         "address": "0x67159b4b3311f05647d8f70e09660e270af8d223",
         "chain": "base",
         "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:00:59.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "THENT",
@@ -215,7 +100,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 71057
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -317,7 +202,7 @@
         "address": "0x01af27cd29eaab7392039c9fae18a5c86938b96a",
         "chain": "base",
         "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 12:43:15.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Unitas",
@@ -326,7 +211,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 45633
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -428,7 +313,7 @@
         "address": "0xf92babc69795899b78d4f2fce3184b5d78973cab",
         "chain": "base",
         "decimals": 6,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:41:23.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "ꓴꓢꓓC",
@@ -437,7 +322,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 36601
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -539,7 +424,7 @@
         "address": "0xce3dea587319b9b74dfc7d82eef1e237776f4f06",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:19:07.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Mohawk Punk",
@@ -548,7 +433,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 29888
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -650,7 +535,7 @@
         "address": "0x24a03099d3f937cce4bd54c25a4905676278d207",
         "chain": "base",
         "decimals": 6,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:23:01.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": " ꓴꓢꓓC ",
@@ -659,7 +544,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 21051
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -761,7 +646,7 @@
         "address": "0x0232b83936c29876cfac2c1183472e7d05afbc34",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 05:14:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Michael Beer",
@@ -770,7 +655,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 20159
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -872,7 +757,7 @@
         "address": "0x2e77fc2d02a73750ec73b01f907be921ff8d1f41",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 22:42:47.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Black Plankton",
@@ -881,7 +766,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 15075
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -983,7 +868,7 @@
         "address": "0x6fb432c830dcb85fcdb84a57f3d29300137fc1cc",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 05:25:27.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "IH0LD",
@@ -992,7 +877,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 10273
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1094,7 +979,7 @@
         "address": "0x6afc3e9ce722a3961f3c151bcd917def59c29b58",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 19:54:07.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "ORYNTH",
@@ -1103,7 +988,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 10249
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1205,7 +1090,7 @@
         "address": "0xacb4da67a9621cb4ff7d5788924cf6845c32f39c",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 14:36:55.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "FLUFFIN",
@@ -1214,7 +1099,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 10152
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1316,7 +1201,7 @@
         "address": "0xcab1e34691fcaa89c295b4d178545f01bf404911",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 12:39:53.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "TROLLINA",
@@ -1325,7 +1210,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 10044
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1427,7 +1312,7 @@
         "address": "0x3ca7f70df47627c0fa69e72f9559e73577cf9737",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 16:04:03.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Zenit",
@@ -1436,7 +1321,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 9962
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1538,7 +1423,7 @@
         "address": "0x0e42e29897f7eacc02a884842e252e75e6f84e6d",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 07:23:21.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Traded Vcs",
@@ -1547,7 +1432,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 9783
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1650,7 +1535,7 @@
         "address": "0x5b227eb7f4016999dd749e4ff0d52684e5e032eb",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:59:17.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "RainbowFish",
@@ -1659,7 +1544,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 9584
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1763,7 +1648,7 @@
         "address": "0xdda9b3da1f6855003cf91b0087623f5d654e3ab9",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 08:15:49.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "PI COIN DROP",
@@ -1772,7 +1657,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 9265
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -1780,228 +1665,6 @@
       "name": "PI COIN DROP",
       "symbol": "PICOP",
       "word_count": 4
-    }
-  },
-  {
-    "id": "base:token:0x33237ecfb3e5f308ae83efb32f4fc833a1b99c5b",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x33237ecfb3e5f308ae83efb32f4fc833a1b99c5b",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 13:57:53.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "thenickshiirley",
-    "symbol": "thenickshirley",
-    "description": "thenickshiirley",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 9631,
-      "unique_wallets": 8553,
-      "deployer_only": false,
-      "tx_count_sample": 9631,
-      "unique_wallets_sample": 8553,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=9631",
-      "wallet_touch_count=8553"
-    ],
-    "why_flagged": [
-      "poor_name_quality_score=0.35",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x33237ecfb3e5f308ae83efb32f4fc833a1b99c5b",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 13:57:53.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "thenickshiirley",
-        "symbol": "thenickshirley",
-        "transfer_count_1d": 9631,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 8553
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.35,
-      "name": "thenickshiirley",
-      "symbol": "thenickshirley",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x226d0f985fc81de4d306002ae1b35b7de9c160e4",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x226d0f985fc81de4d306002ae1b35b7de9c160e4",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 12:32:45.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "testicle",
-    "symbol": "testicle",
-    "description": "testicle",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 17906,
-      "unique_wallets": 8458,
-      "deployer_only": false,
-      "tx_count_sample": 17906,
-      "unique_wallets_sample": 8458,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=17906",
-      "wallet_touch_count=8458",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x226d0f985fc81de4d306002ae1b35b7de9c160e4",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 12:32:45.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "testicle",
-        "symbol": "testicle",
-        "transfer_count_1d": 17906,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 8458
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "testicle",
-      "symbol": "testicle",
-      "word_count": 2
     }
   },
   {
@@ -2098,7 +1761,7 @@
         "address": "0x82ce4c7f4e53daf03b4571ceb380f338c2952035",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 18:15:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "BASADBISONBEST.MAXXX",
@@ -2107,126 +1770,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 8177
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "BASADBISONBEST.MAXXX",
       "symbol": "3BM",
-      "word_count": 3
-    }
-  },
-  {
-    "id": "base:token:0x2a33841a32732b996d8993089b041eeb9e1ae56a",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x2a33841a32732b996d8993089b041eeb9e1ae56a",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 11:53:53.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "Plus Token",
-    "symbol": "PLUS",
-    "description": "Plus Token",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 7608,
-      "unique_wallets": 7270,
-      "deployer_only": false,
-      "tx_count_sample": 7608,
-      "unique_wallets_sample": 7270,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "generic_or_hype_name",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=7608",
-      "wallet_touch_count=7270"
-    ],
-    "why_flagged": [
-      "generic_or_hype_name",
-      "poor_name_quality_score=0.38",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x2a33841a32732b996d8993089b041eeb9e1ae56a",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 11:53:53.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "Plus Token",
-        "symbol": "PLUS",
-        "transfer_count_1d": 7608,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 7270
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.38,
-      "name": "Plus Token",
-      "symbol": "PLUS",
       "word_count": 3
     }
   },
@@ -2322,7 +1872,7 @@
         "address": "0xebaaed062fae09db529d59c96b806eba84dbd860",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:34:23.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": " EТH。  ",
@@ -2331,7 +1881,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 7015
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2433,7 +1983,7 @@
         "address": "0xb8ac1e065924c11ac2084150bd46142173794ad6",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:03:19.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "E.ꓔ.H",
@@ -2442,7 +1992,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 6875
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2544,7 +2094,7 @@
         "address": "0x1bbd0ba4b1367a367522e0826c9091ca17483b69",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 06:23:15.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Slopcoin",
@@ -2553,7 +2103,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 6312
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2655,7 +2205,7 @@
         "address": "0xe505ad3055d2e30da86651f8dd9415dcc5be25e2",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 07:08:21.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "IH0DL",
@@ -2664,7 +2214,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 5157
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2766,7 +2316,7 @@
         "address": "0xb41eb7fea2b5775ebb57d6400553eecb12c5912b",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 06:53:07.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Wasaboot",
@@ -2775,7 +2325,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 5065
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2877,7 +2427,7 @@
         "address": "0x290180ccac406bdb1fd83e400502b8488ec98885",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 15:11:25.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "FLUFFIN",
@@ -2886,7 +2436,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 5048
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -2990,7 +2540,7 @@
         "address": "0x83e2981d16f1d171950eff76e7beb1e76102c9d8",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:38:21.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Board Whale",
@@ -2999,7 +2549,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 4387
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3101,7 +2651,7 @@
         "address": "0xefe2976c0639d1bcd256ad237a5cac6a9d68ec6e",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:12:11.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "IHODL MAX",
@@ -3110,7 +2660,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 4242
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3212,7 +2762,7 @@
         "address": "0x6249d19f91bffd09ae3fe655866a06671a3b4210",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 09:22:57.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "lHOLD",
@@ -3221,7 +2771,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 4092
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3326,7 +2876,7 @@
         "address": "0x401bfe8ad9b6252ff93ad56e924b153ab3aa0f59",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 02:20:55.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Rift Protocol",
@@ -3335,7 +2885,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 3650
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3442,7 +2992,7 @@
         "address": "0x6ea6b3cca9fa2f2c233dd7fffaf7fdf1db57fceb",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 04:07:53.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Play AI",
@@ -3451,7 +3001,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 3566
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3553,7 +3103,7 @@
         "address": "0x3ac836a8c0ab1ba5d552e6dee25ea2c50908bf6b",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:58:43.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Vibe Virtual Machine",
@@ -3562,7 +3112,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 3543
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -3664,7 +3214,7 @@
         "address": "0xacdfaedf98dcc0025b5a47aa1cdcf08fc7375147",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 13:37:47.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "BUILDONBASE",
@@ -3673,126 +3223,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 3359
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "BUILDONBASE",
       "symbol": "BOBS",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0xcc5fc6548a9ca07438d63efa6ec3c20609c787f8",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0xcc5fc6548a9ca07438d63efa6ec3c20609c787f8",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 04:37:31.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "DOGEIRO",
-    "symbol": "DOGEIRO",
-    "description": "DOGEIRO",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 3705,
-      "unique_wallets": 3002,
-      "deployer_only": false,
-      "tx_count_sample": 3705,
-      "unique_wallets_sample": 3002,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "spammy_description",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=3705",
-      "wallet_touch_count=3002",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "spammy_description",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0xcc5fc6548a9ca07438d63efa6ec3c20609c787f8",
-        "chain": "base",
-        "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 04:37:31.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "DOGEIRO",
-        "symbol": "DOGEIRO",
-        "transfer_count_1d": 3705,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 3002
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "DOGEIRO",
-      "symbol": "DOGEIRO",
       "word_count": 2
     }
   },
@@ -3888,7 +3325,7 @@
         "address": "0x1a61568b6b2bf1e57ef53b698af0cbbf966eca32",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:30:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "BITZOIN",
@@ -3897,124 +3334,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 2975
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "BITZOIN",
       "symbol": "BITZOIN",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0xed29e38eec01353463d3e24cfa46adc2b7a30f1d",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0xed29e38eec01353463d3e24cfa46adc2b7a30f1d",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 09:34:27.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "IHOODL",
-    "symbol": "USD",
-    "description": "IHOODL",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 2980,
-      "unique_wallets": 2926,
-      "deployer_only": false,
-      "tx_count_sample": 2980,
-      "unique_wallets_sample": 2926,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=2980",
-      "wallet_touch_count=2926",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0xed29e38eec01353463d3e24cfa46adc2b7a30f1d",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 09:34:27.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "IHOODL",
-        "symbol": "USD",
-        "transfer_count_1d": 2980,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 2926
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "IHOODL",
-      "symbol": "USD",
       "word_count": 2
     }
   },
@@ -4110,7 +3436,7 @@
         "address": "0xa268eac5527accd0b849b8ffc54bddfdea79061d",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:54:47.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Good Morning Everyone !",
@@ -4119,7 +3445,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 2504
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4225,7 +3551,7 @@
         "address": "0x9e53eeb8a89c2d03285d11e88cecc68bd28e391d",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:28:33.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Based White Whale",
@@ -4234,7 +3560,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 2492
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4338,7 +3664,7 @@
         "address": "0x0a6a8823ce3c7f5b4eb8979416852f1503cf1e64",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 12:43:13.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Blue Whale",
@@ -4347,7 +3673,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 2061
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4449,7 +3775,7 @@
         "address": "0x43c2bea291cbe8be22370a4322f10aa6b2053c73",
         "chain": "base",
         "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 14:08:23.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Zama",
@@ -4458,7 +3784,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 2032
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4562,7 +3888,7 @@
         "address": "0x45c94895de2942565ea507b07e230865ee995f8a",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 01:20:49.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Zora Coin",
@@ -4571,7 +3897,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1978
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4579,119 +3905,6 @@
       "name": "Zora Coin",
       "symbol": "ZORA",
       "word_count": 3
-    }
-  },
-  {
-    "id": "base:token:0xe292e82faec97e5c09575564d95484ac361ca7a0",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0xe292e82faec97e5c09575564d95484ac361ca7a0",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 05:46:57.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "Scenario Reputation Token",
-    "symbol": "REP",
-    "description": "Scenario Reputation Token",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 1900,
-      "unique_wallets": 1965,
-      "deployer_only": false,
-      "tx_count_sample": 1900,
-      "unique_wallets_sample": 1965,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "generic_or_hype_name",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=1900",
-      "wallet_touch_count=1965"
-    ],
-    "why_flagged": [
-      "generic_or_hype_name",
-      "poor_name_quality_score=0.38",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0xe292e82faec97e5c09575564d95484ac361ca7a0",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 05:46:57.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "Scenario Reputation Token",
-        "symbol": "REP",
-        "transfer_count_1d": 1900,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 1965
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.38,
-      "name": "Scenario Reputation Token",
-      "symbol": "REP",
-      "word_count": 4
     }
   },
   {
@@ -4786,7 +3999,7 @@
         "address": "0x5ce25bed44e32f8a95d4f841d585a514f9a90a62",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 01:22:49.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Slopcoin",
@@ -4795,7 +4008,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1919
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -4897,7 +4110,7 @@
         "address": "0x37ee4f4090307e85ebe62f6ee186b96b6fd73eb8",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:27:11.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Flying Ketamine Horse",
@@ -4906,7 +4119,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1801
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5011,7 +4224,7 @@
         "address": "0x3e191deb58e26bb4f4e69152581f4a21d2a1f873",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 00:37:29.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "ADI Chain",
@@ -5020,7 +4233,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1632
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5122,7 +4335,7 @@
         "address": "0x9874b1afd602a6b01fe62d0e451d68405a6ad7c1",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 08:10:33.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "DeepNode",
@@ -5131,7 +4344,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1618
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5233,7 +4446,7 @@
         "address": "0x72c4f584912af606196ff459f6747ce83573b214",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 05:51:35.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "snowball",
@@ -5242,7 +4455,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1587
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5344,7 +4557,7 @@
         "address": "0xb99d03c4b19c3b1568836644f1e5f658eba21489",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 13:23:41.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Ovary",
@@ -5353,126 +4566,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1576
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "Ovary",
       "symbol": "Ovary",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x931e26de8bb0b41cb44663f35ef8a285aea5ff80",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x931e26de8bb0b41cb44663f35ef8a285aea5ff80",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 18:09:21.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "moonwhale",
-    "symbol": "MOONWHALE",
-    "description": "moonwhale",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 2563,
-      "unique_wallets": 1553,
-      "deployer_only": false,
-      "tx_count_sample": 2563,
-      "unique_wallets_sample": 1553,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "spammy_description",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=2563",
-      "wallet_touch_count=1553",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "spammy_description",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x931e26de8bb0b41cb44663f35ef8a285aea5ff80",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 18:09:21.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "moonwhale",
-        "symbol": "MOONWHALE",
-        "transfer_count_1d": 2563,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 1553
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "moonwhale",
-      "symbol": "MOONWHALE",
       "word_count": 2
     }
   },
@@ -5568,7 +4668,7 @@
         "address": "0x87181cd7c585572642f7c15f610fdab91afda844",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 20:49:45.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "White Swan",
@@ -5577,7 +4677,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1514
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5679,7 +4779,7 @@
         "address": "0xb038842747899f71c761cddc687eed4b725f823d",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 16:57:11.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "PWESTICLE",
@@ -5688,7 +4788,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1495
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5792,7 +4892,7 @@
         "address": "0x25cca6639b8299a5c934e6a230de71f8f8638763",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 19:56:51.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Starpay Cards",
@@ -5801,7 +4901,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1493
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -5903,7 +5003,7 @@
         "address": "0x9e1d7e10ad4600c2044fb93e4bc796acc38bb0ff",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:44:51.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "EꓔH.",
@@ -5912,7 +5012,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1289
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6016,7 +5116,7 @@
         "address": "0x9d505e57c2f4a2ff733f3910adf422c41e705109",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 04:01:25.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Board Whale",
@@ -6025,7 +5125,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1265
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6033,119 +5133,6 @@
       "name": "The Board Whale",
       "symbol": "BoardWhale",
       "word_count": 4
-    }
-  },
-  {
-    "id": "base:token:0x2d6fad255c20980bae7dcf523ed5be7e4ca89f19",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x2d6fad255c20980bae7dcf523ed5be7e4ca89f19",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 00:33:59.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "Liquid Token",
-    "symbol": "Liquid",
-    "description": "Liquid Token",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 2005,
-      "unique_wallets": 1260,
-      "deployer_only": false,
-      "tx_count_sample": 2005,
-      "unique_wallets_sample": 1260,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "generic_or_hype_name",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=2005",
-      "wallet_touch_count=1260"
-    ],
-    "why_flagged": [
-      "generic_or_hype_name",
-      "poor_name_quality_score=0.38",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x2d6fad255c20980bae7dcf523ed5be7e4ca89f19",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 00:33:59.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "Liquid Token",
-        "symbol": "Liquid",
-        "transfer_count_1d": 2005,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 1260
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.38,
-      "name": "Liquid Token",
-      "symbol": "Liquid",
-      "word_count": 3
     }
   },
   {
@@ -6242,7 +5229,7 @@
         "address": "0x1411af2bf934ed507cbef5b21b5b67cec5a7efa4",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:07:45.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Board Whale",
@@ -6251,7 +5238,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1231
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6353,7 +5340,7 @@
         "address": "0x8ec187285bd6f674797549a2f0fdc4db65dd0fd2",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:58:07.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "EꓔH.",
@@ -6362,7 +5349,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1166
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6464,7 +5451,7 @@
         "address": "0xdb51cc393c3981653b8dd033de7931a1b671e785",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 09:17:17.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "OTO",
@@ -6473,7 +5460,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1160
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6575,7 +5562,7 @@
         "address": "0xbed3610c91e32ad277cded6783fc40c7820c48e0",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:22:19.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "TROLLINA",
@@ -6584,7 +5571,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1146
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6686,7 +5673,7 @@
         "address": "0xe7d3722a2dbbfc3ac711f7ef5d867a45e9df2578",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 00:53:31.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "ETH人生",
@@ -6695,7 +5682,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1083
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6799,7 +5786,7 @@
         "address": "0x886cd6e96eb851eb19d90d2b2b68efe97d213dd1",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 11:41:25.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "The Alpha Deer",
@@ -6808,7 +5795,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 1066
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -6913,7 +5900,7 @@
         "address": "0xcd444d72ff29e7930249695c8912ade3c10af4e4",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:08:03.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Polymarket",
@@ -6922,7 +5909,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 964
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7024,7 +6011,7 @@
         "address": "0x3d20f6b8a48bb3c5022e092e343f758403de5d94",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 21:51:53.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Snowballs",
@@ -7033,7 +6020,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 899
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7136,7 +6123,7 @@
         "address": "0x9681ddcc329c92cb311cba7a4f451127c3e67c04",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 17:18:03.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Cocaine Queen",
@@ -7145,7 +6132,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 898
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7249,7 +6236,7 @@
         "address": "0x775d81b1e90b21ebba7dd939dac71e9e0468388b",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:22:51.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Importapay",
@@ -7258,7 +6245,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 886
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7360,7 +6347,7 @@
         "address": "0x755a0c1512540482191fd1ca4705167dfad75a58",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 15:07:55.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "LIONSUN",
@@ -7369,7 +6356,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 869
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7471,7 +6458,7 @@
         "address": "0xae71d66d9855018566af6e771f8b8c41e306aa97",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 08:24:49.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "$MF ",
@@ -7480,7 +6467,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 820
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7582,7 +6569,7 @@
         "address": "0xd8cf91cbd116a92154e857a99243104a43804e62",
         "chain": "base",
         "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 19:03:09.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Proof of hat",
@@ -7591,7 +6578,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 797
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7693,7 +6680,7 @@
         "address": "0x3e1f90e2567de66f91a25dd52eb19363ad472c11",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 18:28:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Proof of hat",
@@ -7702,7 +6689,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 585
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7804,7 +6791,7 @@
         "address": "0xaae9490b4197db03b2128af2f4da8fa00307bac5",
         "chain": "base",
         "decimals": 6,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:41:23.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "ꓴꓢꓓꓔ",
@@ -7813,7 +6800,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 582
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -7915,7 +6902,7 @@
         "address": "0xe1329bcf60aa89a5196d13c71b8b0337d3295477",
         "chain": "base",
         "decimals": 6,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 03:23:01.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": " ꓴꓢꓓT ",
@@ -7924,7 +6911,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 562
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -8026,7 +7013,7 @@
         "address": "0x8a94d3e34f649aaf3c418ade8ce17bc6a2f4cadc",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 14:10:29.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "shork",
@@ -8035,7 +7022,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 465
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -8137,7 +7124,7 @@
         "address": "0x2ec063666654384bebd968bc33f02118659762d9",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 14:58:05.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Settle",
@@ -8146,126 +7133,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 464
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "Settle",
       "symbol": "Settle",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x770b1b1191e5d80289b4e6c353ed6e0bf41e2507",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x770b1b1191e5d80289b4e6c353ed6e0bf41e2507",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 09:01:25.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "DOGEIRO",
-    "symbol": "DOGEIRO",
-    "description": "DOGEIRO",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 798,
-      "unique_wallets": 456,
-      "deployer_only": false,
-      "tx_count_sample": 798,
-      "unique_wallets_sample": 456,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "spammy_description",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=798",
-      "wallet_touch_count=456",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "spammy_description",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x770b1b1191e5d80289b4e6c353ed6e0bf41e2507",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 09:01:25.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "DOGEIRO",
-        "symbol": "DOGEIRO",
-        "transfer_count_1d": 798,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 456
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "DOGEIRO",
-      "symbol": "DOGEIRO",
       "word_count": 2
     }
   },
@@ -8361,7 +7235,7 @@
         "address": "0x43ad5adae56fa09127ba147d5b24c4bc34abdb07",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 19:29:19.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Politics",
@@ -8370,7 +7244,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 453
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -8472,7 +7346,7 @@
         "address": "0x75054e008433cd680d02e281ff58681004ffd630",
         "chain": "base",
         "decimals": 9,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 21:35:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Overtime",
@@ -8481,7 +7355,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 440
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -8583,7 +7457,7 @@
         "address": "0xaa6c2bc54a4630fd7c5fb7f5dc8b20d36276a5e7",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 00:47:55.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "poolgod",
@@ -8592,7 +7466,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 345
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -8694,7 +7568,7 @@
         "address": "0x9d24636f23d254a0a66a5c3f9def515f5e69b290",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 21:23:43.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "LIFTOFF",
@@ -8703,124 +7577,13 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 307
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "LIFTOFF",
       "symbol": "LIFT",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x03246d8a7d57190d2b4c372ef68ddd8f54725279",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x03246d8a7d57190d2b4c372ef68ddd8f54725279",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 08:08:41.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "Knockout",
-    "symbol": "SHIRLEYvsWALZ",
-    "description": "Knockout",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 819,
-      "unique_wallets": 302,
-      "deployer_only": false,
-      "tx_count_sample": 819,
-      "unique_wallets_sample": 302,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "poor_name_quality",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=819",
-      "wallet_touch_count=302"
-    ],
-    "why_flagged": [
-      "poor_name_quality_score=0.35",
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x03246d8a7d57190d2b4c372ef68ddd8f54725279",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 08:08:41.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "Knockout",
-        "symbol": "SHIRLEYvsWALZ",
-        "transfer_count_1d": 819,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 302
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.35,
-      "name": "Knockout",
-      "symbol": "SHIRLEYvsWALZ",
       "word_count": 2
     }
   },
@@ -8916,7 +7679,7 @@
         "address": "0x089480267d1b22bdb9027091b1d7ea12c56097e9",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 18:40:21.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "Proof Of Hat",
@@ -8925,7 +7688,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 238
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -9030,7 +7793,7 @@
         "address": "0x487ddf0a56fc80369181141af3d5b99a807b2b07",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 09:37:29.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "XiaoBai",
@@ -9039,7 +7802,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 237
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -9141,7 +7904,7 @@
         "address": "0x2f013c284bacbc4ae269c6f25b527d79d7a58656",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 15:45:39.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "BASEDFISH",
@@ -9150,13 +7913,346 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 237
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
       "name": "BASEDFISH",
       "symbol": "BASEDFISH",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x2414ff7499ab8a0d6bb8d059f4e95aa911943549",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x2414ff7499ab8a0d6bb8d059f4e95aa911943549",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 05:00:49.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "Space",
+    "symbol": "Space",
+    "description": "Space",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 259,
+      "unique_wallets": 194,
+      "deployer_only": false,
+      "tx_count_sample": 259,
+      "unique_wallets_sample": 194,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=259",
+      "wallet_touch_count=194",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x2414ff7499ab8a0d6bb8d059f4e95aa911943549",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 05:00:49.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "Space",
+        "symbol": "Space",
+        "transfer_count_1d": 259,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 194
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "Space",
+      "symbol": "Space",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x80903421447418a9ea22e196f6670bea34bb12ac",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x80903421447418a9ea22e196f6670bea34bb12ac",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 22:44:39.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "Cool Watch",
+    "symbol": "Cool Watch",
+    "description": "Cool Watch",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 266,
+      "unique_wallets": 183,
+      "deployer_only": false,
+      "tx_count_sample": 266,
+      "unique_wallets_sample": 183,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=266",
+      "wallet_touch_count=183",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x80903421447418a9ea22e196f6670bea34bb12ac",
+        "chain": "base",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:44:39.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "Cool Watch",
+        "symbol": "Cool Watch",
+        "transfer_count_1d": 266,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 183
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "Cool Watch",
+      "symbol": "Cool Watch",
+      "word_count": 4
+    }
+  },
+  {
+    "id": "base:token:0xd7af0aed5e389862b0aea5128ba33ebee6c2693c",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xd7af0aed5e389862b0aea5128ba33ebee6c2693c",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 21:54:57.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "Beep",
+    "symbol": "BEEP",
+    "description": "Beep",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 246,
+      "unique_wallets": 178,
+      "deployer_only": false,
+      "tx_count_sample": 246,
+      "unique_wallets_sample": 178,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=246",
+      "wallet_touch_count=178",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xd7af0aed5e389862b0aea5128ba33ebee6c2693c",
+        "chain": "base",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 21:54:57.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "Beep",
+        "symbol": "BEEP",
+        "transfer_count_1d": 246,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 178
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "Beep",
+      "symbol": "BEEP",
       "word_count": 2
     }
   },
@@ -9252,7 +8348,7 @@
         "address": "0x9847f9130bf2888979f849ef42cd710a99d6b802",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 10:29:47.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "EPHYRA",
@@ -9261,7 +8357,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 172
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -9272,19 +8368,19 @@
     }
   },
   {
-    "id": "base:token:0xcd06f0ace5293dd086b3705d9fa6698aabbbbb07",
+    "id": "base:token:0x1dc461861401ec3ab6195468525f233b1e46ac07",
     "chain": "base",
     "object_type": "token",
-    "address": "0xcd06f0ace5293dd086b3705d9fa6698aabbbbb07",
+    "address": "0x1dc461861401ec3ab6195468525f233b1e46ac07",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 11:55:55.000 UTC",
+    "created_at": "2026-01-09 20:18:39.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "Maduro Memes",
-    "symbol": "Maduro",
-    "description": "Maduro Memes",
+    "name": "Proof Of Hat",
+    "symbol": "POH",
+    "description": "Proof Of Hat",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -9298,11 +8394,11 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 721,
-      "unique_wallets": 170,
+      "transfer_count": 163,
+      "unique_wallets": 162,
       "deployer_only": false,
-      "tx_count_sample": 721,
-      "unique_wallets_sample": 170,
+      "tx_count_sample": 163,
+      "unique_wallets_sample": 162,
       "activity_continues": true
     },
     "market_signals": {
@@ -9350,8 +8446,8 @@
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=721",
-      "wallet_touch_count=170",
+      "transfer_count=163",
+      "wallet_touch_count=162",
       "name_quality_score=0.5"
     ],
     "why_flagged": [
@@ -9360,42 +8456,42 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0xcd06f0ace5293dd086b3705d9fa6698aabbbbb07",
+        "address": "0x1dc461861401ec3ab6195468525f233b1e46ac07",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 11:55:55.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 20:18:39.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "Maduro Memes",
-        "symbol": "Maduro",
-        "transfer_count_1d": 721,
+        "name": "Proof Of Hat",
+        "symbol": "POH",
+        "transfer_count_1d": 163,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 170
+        "wallet_touch_count_1d": 162
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
-      "name": "Maduro Memes",
-      "symbol": "Maduro",
-      "word_count": 3
+      "name": "Proof Of Hat",
+      "symbol": "POH",
+      "word_count": 4
     }
   },
   {
-    "id": "base:token:0x06e5a750bf659e457b1431e287623836cad63574",
+    "id": "base:token:0x97118bd610c94258733f48a5643de3155baf5f61",
     "chain": "base",
     "object_type": "token",
-    "address": "0x06e5a750bf659e457b1431e287623836cad63574",
+    "address": "0x97118bd610c94258733f48a5643de3155baf5f61",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 03:17:37.000 UTC",
+    "created_at": "2026-01-09 22:53:53.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "A",
-    "symbol": "A",
-    "description": "A",
+    "name": "Proof of watch",
+    "symbol": "POW",
+    "description": "Proof of watch",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -9409,11 +8505,11 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 413,
-      "unique_wallets": 167,
+      "transfer_count": 189,
+      "unique_wallets": 154,
       "deployer_only": false,
-      "tx_count_sample": 413,
-      "unique_wallets_sample": 167,
+      "tx_count_sample": 189,
+      "unique_wallets_sample": 154,
       "activity_continues": true
     },
     "market_signals": {
@@ -9453,44 +8549,44 @@
       "confidence_score": 0.0
     },
     "labels": [
+      "acceptable_name_quality",
       "dune_discovered",
       "fresh_first_seen_candidate",
-      "poor_name_quality",
       "processing_error"
     ],
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=413",
-      "wallet_touch_count=167"
+      "transfer_count=189",
+      "wallet_touch_count=154",
+      "name_quality_score=0.5"
     ],
     "why_flagged": [
-      "poor_name_quality_score=0.15",
       "processing_error=AttributeError"
     ],
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x06e5a750bf659e457b1431e287623836cad63574",
+        "address": "0x97118bd610c94258733f48a5643de3155baf5f61",
         "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 03:17:37.000 UTC",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:53:53.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "A",
-        "symbol": "A",
-        "transfer_count_1d": 413,
+        "name": "Proof of watch",
+        "symbol": "POW",
+        "transfer_count_1d": 189,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 167
+        "wallet_touch_count_1d": 154
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
-      "score": 0.15,
-      "name": "A",
-      "symbol": "A",
-      "word_count": 2
+      "score": 0.5,
+      "name": "Proof of watch",
+      "symbol": "POW",
+      "word_count": 4
     }
   },
   {
@@ -9585,7 +8681,7 @@
         "address": "0x4e70552fe57b2acb9002f0ef2520bd5f09847104",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
+        "discovery_source": "dune_base_first_seen_filtered",
         "first_seen_at": "2026-01-09 07:33:45.000 UTC",
         "first_seen_date": "2026-01-09",
         "name": "SevenPos",
@@ -9594,7 +8690,7 @@
         "transfer_volume_usd_1d": 0,
         "wallet_touch_count_1d": 153
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
@@ -9605,19 +8701,19 @@
     }
   },
   {
-    "id": "base:token:0x564b9f5ffc91442fb62e093526e0d75346fbd82e",
+    "id": "base:token:0xf9acc8951c599b0e698956f83aae8a56febdc75b",
     "chain": "base",
     "object_type": "token",
-    "address": "0x564b9f5ffc91442fb62e093526e0d75346fbd82e",
+    "address": "0xf9acc8951c599b0e698956f83aae8a56febdc75b",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 08:50:33.000 UTC",
+    "created_at": "2026-01-09 13:14:11.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "charion",
-    "symbol": "charion",
-    "description": "charion",
+    "name": "Ovary",
+    "symbol": "Ovary",
+    "description": "Ovary",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -9631,11 +8727,11 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 340,
-      "unique_wallets": 38,
+      "transfer_count": 213,
+      "unique_wallets": 149,
       "deployer_only": false,
-      "tx_count_sample": 340,
-      "unique_wallets_sample": 38,
+      "tx_count_sample": 213,
+      "unique_wallets_sample": 149,
       "activity_continues": true
     },
     "market_signals": {
@@ -9683,8 +8779,8 @@
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=340",
-      "wallet_touch_count=38",
+      "transfer_count=213",
+      "wallet_touch_count=149",
       "name_quality_score=0.5"
     ],
     "why_flagged": [
@@ -9693,42 +8789,42 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x564b9f5ffc91442fb62e093526e0d75346fbd82e",
+        "address": "0xf9acc8951c599b0e698956f83aae8a56febdc75b",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 08:50:33.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 13:14:11.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "charion",
-        "symbol": "charion",
-        "transfer_count_1d": 340,
+        "name": "Ovary",
+        "symbol": "Ovary",
+        "transfer_count_1d": 213,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 38
+        "wallet_touch_count_1d": 149
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
-      "name": "charion",
-      "symbol": "charion",
+      "name": "Ovary",
+      "symbol": "Ovary",
       "word_count": 2
     }
   },
   {
-    "id": "base:token:0x8dc444856b20127082885758952ff79ec6b87c3a",
+    "id": "base:token:0x313dbd370f7713926b974362c642579a36e029ab",
     "chain": "base",
     "object_type": "token",
-    "address": "0x8dc444856b20127082885758952ff79ec6b87c3a",
+    "address": "0x313dbd370f7713926b974362c642579a36e029ab",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 16:02:09.000 UTC",
+    "created_at": "2026-01-09 19:02:21.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "長頸羚",
-    "symbol": "A80",
-    "description": "長頸羚",
+    "name": "Proof of Hat",
+    "symbol": "POH",
+    "description": "Proof of Hat",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -9742,11 +8838,11 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 549,
-      "unique_wallets": 34,
+      "transfer_count": 256,
+      "unique_wallets": 131,
       "deployer_only": false,
-      "tx_count_sample": 549,
-      "unique_wallets_sample": 34,
+      "tx_count_sample": 256,
+      "unique_wallets_sample": 131,
       "activity_continues": true
     },
     "market_signals": {
@@ -9794,8 +8890,8 @@
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=549",
-      "wallet_touch_count=34",
+      "transfer_count=256",
+      "wallet_touch_count=131",
       "name_quality_score=0.5"
     ],
     "why_flagged": [
@@ -9804,264 +8900,42 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x8dc444856b20127082885758952ff79ec6b87c3a",
+        "address": "0x313dbd370f7713926b974362c642579a36e029ab",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 16:02:09.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 19:02:21.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "長頸羚",
-        "symbol": "A80",
-        "transfer_count_1d": 549,
+        "name": "Proof of Hat",
+        "symbol": "POH",
+        "transfer_count_1d": 256,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 34
+        "wallet_touch_count_1d": 131
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
-      "name": "長頸羚",
-      "symbol": "A80",
-      "word_count": 1
-    }
-  },
-  {
-    "id": "base:token:0xb9e4d06acae755fc4b0c23c2575507a56fdfc6e5",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0xb9e4d06acae755fc4b0c23c2575507a56fdfc6e5",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 07:48:53.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "MUSH",
-    "symbol": "MUSH",
-    "description": "MUSH",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 420,
-      "unique_wallets": 29,
-      "deployer_only": false,
-      "tx_count_sample": 420,
-      "unique_wallets_sample": 29,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=420",
-      "wallet_touch_count=29",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0xb9e4d06acae755fc4b0c23c2575507a56fdfc6e5",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 07:48:53.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "MUSH",
-        "symbol": "MUSH",
-        "transfer_count_1d": 420,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 29
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "MUSH",
-      "symbol": "MUSH",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x35a12a0df732769dfc35b220bdf80a94a10d2329",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x35a12a0df732769dfc35b220bdf80a94a10d2329",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 15:08:57.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "strawberry choco cake",
-    "symbol": "SCC",
-    "description": "strawberry choco cake",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 343,
-      "unique_wallets": 26,
-      "deployer_only": false,
-      "tx_count_sample": 343,
-      "unique_wallets_sample": 26,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=343",
-      "wallet_touch_count=26",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x35a12a0df732769dfc35b220bdf80a94a10d2329",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 15:08:57.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "strawberry choco cake",
-        "symbol": "SCC",
-        "transfer_count_1d": 343,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 26
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "strawberry choco cake",
-      "symbol": "SCC",
+      "name": "Proof of Hat",
+      "symbol": "POH",
       "word_count": 4
     }
   },
   {
-    "id": "base:token:0x28f0cfecafa056e85122c55538f2a16da1a5d646",
+    "id": "base:token:0x2e6ff87179fe258f812ee2de2d6e53591f6a1c90",
     "chain": "base",
     "object_type": "token",
-    "address": "0x28f0cfecafa056e85122c55538f2a16da1a5d646",
+    "address": "0x2e6ff87179fe258f812ee2de2d6e53591f6a1c90",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 01:24:37.000 UTC",
+    "created_at": "2026-01-09 22:09:07.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "Z",
-    "symbol": "Z",
-    "description": "Z",
+    "name": "cj_socool",
+    "symbol": "cj_socool",
+    "description": "cj_socool",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -10075,11 +8949,1565 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 476,
-      "unique_wallets": 24,
+      "transfer_count": 230,
+      "unique_wallets": 130,
       "deployer_only": false,
-      "tx_count_sample": 476,
-      "unique_wallets_sample": 24,
+      "tx_count_sample": 230,
+      "unique_wallets_sample": 130,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=230",
+      "wallet_touch_count=130",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x2e6ff87179fe258f812ee2de2d6e53591f6a1c90",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:09:07.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "cj_socool",
+        "symbol": "cj_socool",
+        "transfer_count_1d": 230,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 130
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "cj_socool",
+      "symbol": "cj_socool",
+      "word_count": 4
+    }
+  },
+  {
+    "id": "base:token:0x2918c52287c32bb63606cc6ef25d61e437a78f42",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x2918c52287c32bb63606cc6ef25d61e437a78f42",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 21:52:05.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sadf",
+    "symbol": "asdf",
+    "description": "sadf",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 165,
+      "unique_wallets": 115,
+      "deployer_only": false,
+      "tx_count_sample": 165,
+      "unique_wallets_sample": 115,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=165",
+      "wallet_touch_count=115",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x2918c52287c32bb63606cc6ef25d61e437a78f42",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 21:52:05.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sadf",
+        "symbol": "asdf",
+        "transfer_count_1d": 165,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 115
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sadf",
+      "symbol": "asdf",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x302738490866e109b2ee1263e5d14d7eab36dfb7",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x302738490866e109b2ee1263e5d14d7eab36dfb7",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 20:53:51.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "distro",
+    "symbol": "proper",
+    "description": "distro",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 140,
+      "unique_wallets": 115,
+      "deployer_only": false,
+      "tx_count_sample": 140,
+      "unique_wallets_sample": 115,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=140",
+      "wallet_touch_count=115",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x302738490866e109b2ee1263e5d14d7eab36dfb7",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 20:53:51.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "distro",
+        "symbol": "proper",
+        "transfer_count_1d": 140,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 115
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "distro",
+      "symbol": "proper",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0xec790ebc7bcd708cdfef88bb4916b700ecba2bc2",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xec790ebc7bcd708cdfef88bb4916b700ecba2bc2",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 21:15:17.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "bower",
+    "symbol": "wower",
+    "description": "bower",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 164,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 164,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=164",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xec790ebc7bcd708cdfef88bb4916b700ecba2bc2",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 21:15:17.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "bower",
+        "symbol": "wower",
+        "transfer_count_1d": 164,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "bower",
+      "symbol": "wower",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x17e71fa4dfa72d9da019be3dce0778459d5bb819",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x17e71fa4dfa72d9da019be3dce0778459d5bb819",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 21:31:11.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "asdfdfs",
+    "symbol": "sadfdfs",
+    "description": "asdfdfs",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 164,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 164,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=164",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x17e71fa4dfa72d9da019be3dce0778459d5bb819",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 21:31:11.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "asdfdfs",
+        "symbol": "sadfdfs",
+        "transfer_count_1d": 164,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "asdfdfs",
+      "symbol": "sadfdfs",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0xacbaf81061168b2873b78e1a4da9bffe83999062",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xacbaf81061168b2873b78e1a4da9bffe83999062",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 23:38:41.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sdfdsffds",
+    "symbol": "sadfdsffd",
+    "description": "sdfdsffds",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 162,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 162,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=162",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xacbaf81061168b2873b78e1a4da9bffe83999062",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 23:38:41.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sdfdsffds",
+        "symbol": "sadfdsffd",
+        "transfer_count_1d": 162,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sdfdsffds",
+      "symbol": "sadfdsffd",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x6c0495e926e4aee005cf5055e99006865dc3d733",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x6c0495e926e4aee005cf5055e99006865dc3d733",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 23:48:03.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "asdfsdf",
+    "symbol": "asdds",
+    "description": "asdfsdf",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 162,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 162,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=162",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x6c0495e926e4aee005cf5055e99006865dc3d733",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 23:48:03.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "asdfsdf",
+        "symbol": "asdds",
+        "transfer_count_1d": 162,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "asdfsdf",
+      "symbol": "asdds",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0xc22bd7e749b7133405eb5f5116c68df45903d34d",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xc22bd7e749b7133405eb5f5116c68df45903d34d",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 23:35:59.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sdfdsfds",
+    "symbol": "sdfdsfds",
+    "description": "sdfdsfds",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 155,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 155,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=155",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xc22bd7e749b7133405eb5f5116c68df45903d34d",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 23:35:59.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sdfdsfds",
+        "symbol": "sdfdsfds",
+        "transfer_count_1d": 155,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sdfdsfds",
+      "symbol": "sdfdsfds",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0xf27c45f052e60edbde071567f9e9d50a39789cfc",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xf27c45f052e60edbde071567f9e9d50a39789cfc",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 22:40:25.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "work",
+    "symbol": "work",
+    "description": "work",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 131,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 131,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=131",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xf27c45f052e60edbde071567f9e9d50a39789cfc",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:40:25.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "work",
+        "symbol": "work",
+        "transfer_count_1d": 131,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "work",
+      "symbol": "work",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x8be912b765186907be5b8f2222f8678e43f5a4fc",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x8be912b765186907be5b8f2222f8678e43f5a4fc",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 23:31:57.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sdsdsd",
+    "symbol": "sdsdsd",
+    "description": "sdsdsd",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 126,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 126,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=126",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x8be912b765186907be5b8f2222f8678e43f5a4fc",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 23:31:57.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sdsdsd",
+        "symbol": "sdsdsd",
+        "transfer_count_1d": 126,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sdsdsd",
+      "symbol": "sdsdsd",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x319f78ce32d3ed894c735852aaa7a3023ae0c4c3",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x319f78ce32d3ed894c735852aaa7a3023ae0c4c3",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 23:26:29.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sdsd",
+    "symbol": "sdsed",
+    "description": "sdsd",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 122,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 122,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=122",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x319f78ce32d3ed894c735852aaa7a3023ae0c4c3",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 23:26:29.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sdsd",
+        "symbol": "sdsed",
+        "transfer_count_1d": 122,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sdsd",
+      "symbol": "sdsed",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x7d7ef99df197cc8665043c4fe469210ce0cc4dba",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x7d7ef99df197cc8665043c4fe469210ce0cc4dba",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 22:49:11.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sdfasdfdfs",
+    "symbol": "asddfsafds",
+    "description": "sdfasdfdfs",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 122,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 122,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=122",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x7d7ef99df197cc8665043c4fe469210ce0cc4dba",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:49:11.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "sdfasdfdfs",
+        "symbol": "asddfsafds",
+        "transfer_count_1d": 122,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "sdfasdfdfs",
+      "symbol": "asddfsafds",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0x338172bdb72bbecb56b49990ad869c11888f7ab7",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0x338172bdb72bbecb56b49990ad869c11888f7ab7",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 22:55:49.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "asdfdsf",
+    "symbol": "sdfdsf",
+    "description": "asdfdsf",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 122,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 122,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=122",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x338172bdb72bbecb56b49990ad869c11888f7ab7",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 22:55:49.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "asdfdsf",
+        "symbol": "sdfdsf",
+        "transfer_count_1d": 122,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "asdfdsf",
+      "symbol": "sdfdsf",
+      "word_count": 2
+    }
+  },
+  {
+    "id": "base:token:0xaa514155bae69779aba15dcd077c27cda4eee97b",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xaa514155bae69779aba15dcd077c27cda4eee97b",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 02:07:47.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "NFL Playoffs",
+    "symbol": "NFL",
+    "description": "NFL Playoffs",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 118,
+      "unique_wallets": 113,
+      "deployer_only": false,
+      "tx_count_sample": 118,
+      "unique_wallets_sample": 113,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=118",
+      "wallet_touch_count=113",
+      "name_quality_score=0.5"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xaa514155bae69779aba15dcd077c27cda4eee97b",
+        "chain": "base",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 02:07:47.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "NFL Playoffs",
+        "symbol": "NFL",
+        "transfer_count_1d": 118,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 113
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.5,
+      "name": "NFL Playoffs",
+      "symbol": "NFL",
+      "word_count": 3
+    }
+  },
+  {
+    "id": "base:token:0xeb4224ea754b4b9defdf2cf72786d44d2b017af3",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xeb4224ea754b4b9defdf2cf72786d44d2b017af3",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 19:13:41.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "Proof of hat",
+    "symbol": "Proof of hat",
+    "description": "Proof of hat",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 137,
+      "unique_wallets": 112,
+      "deployer_only": false,
+      "tx_count_sample": 137,
+      "unique_wallets_sample": 112,
       "activity_continues": true
     },
     "market_signals": {
@@ -10121,58 +10549,60 @@
     "labels": [
       "dune_discovered",
       "fresh_first_seen_candidate",
+      "long_phrase_name",
       "poor_name_quality",
       "processing_error"
     ],
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=476",
-      "wallet_touch_count=24"
+      "transfer_count=137",
+      "wallet_touch_count=112"
     ],
     "why_flagged": [
-      "poor_name_quality_score=0.15",
+      "name_looks_like_sentence",
+      "poor_name_quality_score=0.1",
       "processing_error=AttributeError"
     ],
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x28f0cfecafa056e85122c55538f2a16da1a5d646",
+        "address": "0xeb4224ea754b4b9defdf2cf72786d44d2b017af3",
         "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 01:24:37.000 UTC",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 19:13:41.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "Z",
-        "symbol": "Z",
-        "transfer_count_1d": 476,
+        "name": "Proof of hat",
+        "symbol": "Proof of hat",
+        "transfer_count_1d": 137,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 24
+        "wallet_touch_count_1d": 112
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
-      "score": 0.15,
-      "name": "Z",
-      "symbol": "Z",
-      "word_count": 2
+      "score": 0.1,
+      "name": "Proof of hat",
+      "symbol": "Proof of hat",
+      "word_count": 6
     }
   },
   {
-    "id": "base:token:0x574cda31313aa58ced6824c47fc873896f5d54e2",
+    "id": "base:token:0xc66ef5059b16a377246713580237c44738119b6a",
     "chain": "base",
     "object_type": "token",
-    "address": "0x574cda31313aa58ced6824c47fc873896f5d54e2",
+    "address": "0xc66ef5059b16a377246713580237c44738119b6a",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 03:48:33.000 UTC",
+    "created_at": "2026-01-09 03:38:53.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "MUSH",
-    "symbol": "MUSH",
-    "description": "MUSH",
+    "name": "C FOR CATS",
+    "symbol": "C FOR CATS",
+    "description": "C FOR CATS",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -10186,11 +10616,124 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 349,
-      "unique_wallets": 22,
+      "transfer_count": 265,
+      "unique_wallets": 111,
       "deployer_only": false,
-      "tx_count_sample": 349,
-      "unique_wallets_sample": 22,
+      "tx_count_sample": 265,
+      "unique_wallets_sample": 111,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "long_phrase_name",
+      "poor_name_quality",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=265",
+      "wallet_touch_count=111"
+    ],
+    "why_flagged": [
+      "name_looks_like_sentence",
+      "poor_name_quality_score=0.1",
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0xc66ef5059b16a377246713580237c44738119b6a",
+        "chain": "base",
+        "decimals": 18,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 03:38:53.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "C FOR CATS",
+        "symbol": "C FOR CATS",
+        "transfer_count_1d": 265,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 111
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.1,
+      "name": "C FOR CATS",
+      "symbol": "C FOR CATS",
+      "word_count": 6
+    }
+  },
+  {
+    "id": "base:token:0xdca54bc59e166260c3785acea5e9614e263d314d",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xdca54bc59e166260c3785acea5e9614e263d314d",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 21:49:59.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "sadfdsf",
+    "symbol": "asdfdf",
+    "description": "sadfdsf",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 106,
+      "unique_wallets": 110,
+      "deployer_only": false,
+      "tx_count_sample": 106,
+      "unique_wallets_sample": 110,
       "activity_continues": true
     },
     "market_signals": {
@@ -10238,8 +10781,8 @@
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=349",
-      "wallet_touch_count=22",
+      "transfer_count=106",
+      "wallet_touch_count=110",
       "name_quality_score=0.5"
     ],
     "why_flagged": [
@@ -10248,42 +10791,42 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x574cda31313aa58ced6824c47fc873896f5d54e2",
+        "address": "0xdca54bc59e166260c3785acea5e9614e263d314d",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 03:48:33.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 21:49:59.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "MUSH",
-        "symbol": "MUSH",
-        "transfer_count_1d": 349,
+        "name": "sadfdsf",
+        "symbol": "asdfdf",
+        "transfer_count_1d": 106,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 22
+        "wallet_touch_count_1d": 110
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
-      "name": "MUSH",
-      "symbol": "MUSH",
+      "name": "sadfdsf",
+      "symbol": "asdfdf",
       "word_count": 2
     }
   },
   {
-    "id": "base:token:0xa2f5f4fc1b4061e7040d83c73db2f2c2da206986",
+    "id": "base:token:0x3e208e4425ef74e8cf0ca56caaba328435627d8d",
     "chain": "base",
     "object_type": "token",
-    "address": "0xa2f5f4fc1b4061e7040d83c73db2f2c2da206986",
+    "address": "0x3e208e4425ef74e8cf0ca56caaba328435627d8d",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 15:08:41.000 UTC",
+    "created_at": "2026-01-09 01:43:05.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "ZAMA",
-    "symbol": "ZAMA",
-    "description": "ZAMA",
+    "name": "GM Base",
+    "symbol": "GM",
+    "description": "GM Base",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -10297,11 +10840,124 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 408,
-      "unique_wallets": 21,
+      "transfer_count": 112,
+      "unique_wallets": 108,
       "deployer_only": false,
-      "tx_count_sample": 408,
-      "unique_wallets_sample": 21,
+      "tx_count_sample": 112,
+      "unique_wallets_sample": 108,
+      "activity_continues": true
+    },
+    "market_signals": {
+      "dex_listed": false,
+      "dex_id": null,
+      "pair_address": null,
+      "liquidity_usd": 0.0,
+      "volume_usd_24h": 0.0,
+      "price_usd": 0.0,
+      "recognized_dex": false
+    },
+    "cluster_signals": {
+      "cluster_size": 1,
+      "same_creator_nearby_contracts": 0,
+      "creator_tx_sample_size": 0,
+      "creator_spammy": false,
+      "has_project_cluster": false,
+      "has_utility_contract_hint": false,
+      "has_proxy_or_implementation_pattern": false,
+      "cluster_score": 0.0,
+      "related_contracts": []
+    },
+    "socials": {
+      "website": null,
+      "twitter_x": null,
+      "telegram": null,
+      "discord": null,
+      "github": null,
+      "docs": null
+    },
+    "scores": {
+      "project_likelihood_score": 0.0,
+      "economic_activity_score": 0.0,
+      "social_presence_score": 0.0,
+      "spam_risk_score": 1.0,
+      "momentum_score": 0.0,
+      "confidence_score": 0.0
+    },
+    "labels": [
+      "acceptable_name_quality",
+      "dune_discovered",
+      "fresh_first_seen_candidate",
+      "project_like_name_word",
+      "processing_error"
+    ],
+    "action": "ignore",
+    "why_kept": [
+      "dune_first_seen_transfer_candidate",
+      "transfer_count=112",
+      "wallet_touch_count=108",
+      "project_like_name_word",
+      "name_quality_score=0.7"
+    ],
+    "why_flagged": [
+      "processing_error=AttributeError"
+    ],
+    "source": "dune",
+    "raw": {
+      "dune": {
+        "address": "0x3e208e4425ef74e8cf0ca56caaba328435627d8d",
+        "chain": "base",
+        "decimals": 9,
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 01:43:05.000 UTC",
+        "first_seen_date": "2026-01-09",
+        "name": "GM Base",
+        "symbol": "GM",
+        "transfer_count_1d": 112,
+        "transfer_volume_usd_1d": 0,
+        "wallet_touch_count_1d": 108
+      },
+      "discovery_source": "dune_base_first_seen_filtered",
+      "processing_error": "'NoneType' object has no attribute 'get'"
+    },
+    "name_quality": {
+      "score": 0.7,
+      "name": "GM Base",
+      "symbol": "GM",
+      "word_count": 3
+    }
+  },
+  {
+    "id": "base:token:0xe915177d2973e8d7bcd671b1061838e952ed1ecf",
+    "chain": "base",
+    "object_type": "token",
+    "address": "0xe915177d2973e8d7bcd671b1061838e952ed1ecf",
+    "creator": null,
+    "creation_tx": null,
+    "created_at": "2026-01-09 10:48:15.000 UTC",
+    "created_block": null,
+    "first_seen": "2026-01-09",
+    "snapshot_date": "2026-01-09",
+    "name": "BLUE OCTOPUS",
+    "symbol": "BLUE OCTOPUS",
+    "description": "BLUE OCTOPUS",
+    "contract_signals": {
+      "verified_contract": false,
+      "contract_name": null,
+      "is_proxy": false,
+      "implementation": null,
+      "erc20": true,
+      "erc721": false,
+      "erc1155": false,
+      "has_metadata": true,
+      "bytecode_known": true,
+      "generic_name_risk": false
+    },
+    "activity_signals": {
+      "transfer_count": 290,
+      "unique_wallets": 107,
+      "deployer_only": false,
+      "tx_count_sample": 290,
+      "unique_wallets_sample": 107,
       "activity_continues": true
     },
     "market_signals": {
@@ -10349,8 +11005,8 @@
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=408",
-      "wallet_touch_count=21",
+      "transfer_count=290",
+      "wallet_touch_count=107",
       "name_quality_score=0.5"
     ],
     "why_flagged": [
@@ -10359,42 +11015,42 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0xa2f5f4fc1b4061e7040d83c73db2f2c2da206986",
+        "address": "0xe915177d2973e8d7bcd671b1061838e952ed1ecf",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 15:08:41.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 10:48:15.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "ZAMA",
-        "symbol": "ZAMA",
-        "transfer_count_1d": 408,
+        "name": "BLUE OCTOPUS ",
+        "symbol": "BLUE OCTOPUS",
+        "transfer_count_1d": 290,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 21
+        "wallet_touch_count_1d": 107
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
       "score": 0.5,
-      "name": "ZAMA",
-      "symbol": "ZAMA",
-      "word_count": 2
+      "name": "BLUE OCTOPUS",
+      "symbol": "BLUE OCTOPUS",
+      "word_count": 4
     }
   },
   {
-    "id": "base:token:0x15b577d5828349d0a9f96c0b57d80a3a4931559e",
+    "id": "base:token:0xf59657725b3f202dae82251ebdb3647a67278e4c",
     "chain": "base",
     "object_type": "token",
-    "address": "0x15b577d5828349d0a9f96c0b57d80a3a4931559e",
+    "address": "0xf59657725b3f202dae82251ebdb3647a67278e4c",
     "creator": null,
     "creation_tx": null,
-    "created_at": "2026-01-09 12:38:21.000 UTC",
+    "created_at": "2026-01-09 03:25:21.000 UTC",
     "created_block": null,
     "first_seen": "2026-01-09",
     "snapshot_date": "2026-01-09",
-    "name": "MUSH",
-    "symbol": "MUSH",
-    "description": "MUSH",
+    "name": "ZenChain",
+    "symbol": "ZenChain",
+    "description": "ZenChain",
     "contract_signals": {
       "verified_contract": false,
       "contract_name": null,
@@ -10408,11 +11064,11 @@
       "generic_name_risk": false
     },
     "activity_signals": {
-      "transfer_count": 415,
-      "unique_wallets": 20,
+      "transfer_count": 135,
+      "unique_wallets": 105,
       "deployer_only": false,
-      "tx_count_sample": 415,
-      "unique_wallets_sample": 20,
+      "tx_count_sample": 135,
+      "unique_wallets_sample": 105,
       "activity_continues": true
     },
     "market_signals": {
@@ -10455,14 +11111,17 @@
       "acceptable_name_quality",
       "dune_discovered",
       "fresh_first_seen_candidate",
+      "project_like_name_suffix",
+      "some_project_keywords",
       "processing_error"
     ],
     "action": "ignore",
     "why_kept": [
       "dune_first_seen_transfer_candidate",
-      "transfer_count=415",
-      "wallet_touch_count=20",
-      "name_quality_score=0.5"
+      "transfer_count=135",
+      "wallet_touch_count=105",
+      "project_like_name_suffix",
+      "name_quality_score=0.75"
     ],
     "why_flagged": [
       "processing_error=AttributeError"
@@ -10470,691 +11129,25 @@
     "source": "dune",
     "raw": {
       "dune": {
-        "address": "0x15b577d5828349d0a9f96c0b57d80a3a4931559e",
+        "address": "0xf59657725b3f202dae82251ebdb3647a67278e4c",
         "chain": "base",
         "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 12:38:21.000 UTC",
+        "discovery_source": "dune_base_first_seen_filtered",
+        "first_seen_at": "2026-01-09 03:25:21.000 UTC",
         "first_seen_date": "2026-01-09",
-        "name": "MUSH",
-        "symbol": "MUSH",
-        "transfer_count_1d": 415,
+        "name": "ZenChain",
+        "symbol": "ZenChain",
+        "transfer_count_1d": 135,
         "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 20
+        "wallet_touch_count_1d": 105
       },
-      "discovery_source": "dune_first_seen_token_90d",
+      "discovery_source": "dune_base_first_seen_filtered",
       "processing_error": "'NoneType' object has no attribute 'get'"
     },
     "name_quality": {
-      "score": 0.5,
-      "name": "MUSH",
-      "symbol": "MUSH",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x3d3ea34cf1e975f8363053c2c86c4e6a660932f0",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x3d3ea34cf1e975f8363053c2c86c4e6a660932f0",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 10:08:33.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "ZAMA",
-    "symbol": "ZAMA",
-    "description": "ZAMA",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 411,
-      "unique_wallets": 20,
-      "deployer_only": false,
-      "tx_count_sample": 411,
-      "unique_wallets_sample": 20,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=411",
-      "wallet_touch_count=20",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x3d3ea34cf1e975f8363053c2c86c4e6a660932f0",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 10:08:33.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "ZAMA",
-        "symbol": "ZAMA",
-        "transfer_count_1d": 411,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 20
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "ZAMA",
-      "symbol": "ZAMA",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x3bf465d35c48d19bc37a295e5c71ee91bd8f5010",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x3bf465d35c48d19bc37a295e5c71ee91bd8f5010",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 21:10:03.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "MUSH",
-    "symbol": "MUSH",
-    "description": "MUSH",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 408,
-      "unique_wallets": 19,
-      "deployer_only": false,
-      "tx_count_sample": 408,
-      "unique_wallets_sample": 19,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=408",
-      "wallet_touch_count=19",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x3bf465d35c48d19bc37a295e5c71ee91bd8f5010",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 21:10:03.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "MUSH",
-        "symbol": "MUSH",
-        "transfer_count_1d": 408,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 19
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "MUSH",
-      "symbol": "MUSH",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x1946af5f6f8b65cfa492f09cfe0263489adc49e7",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x1946af5f6f8b65cfa492f09cfe0263489adc49e7",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 19:05:53.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "ZAMA",
-    "symbol": "ZAMA",
-    "description": "ZAMA",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 403,
-      "unique_wallets": 19,
-      "deployer_only": false,
-      "tx_count_sample": 403,
-      "unique_wallets_sample": 19,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=403",
-      "wallet_touch_count=19",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x1946af5f6f8b65cfa492f09cfe0263489adc49e7",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 19:05:53.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "ZAMA",
-        "symbol": "ZAMA",
-        "transfer_count_1d": 403,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 19
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "ZAMA",
-      "symbol": "ZAMA",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x984851883af709b11e5b5aaaf1effa15c7702ffb",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x984851883af709b11e5b5aaaf1effa15c7702ffb",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 05:42:25.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "ZAMA",
-    "symbol": "ZAMA",
-    "description": "ZAMA",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 398,
-      "unique_wallets": 18,
-      "deployer_only": false,
-      "tx_count_sample": 398,
-      "unique_wallets_sample": 18,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=398",
-      "wallet_touch_count=18",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x984851883af709b11e5b5aaaf1effa15c7702ffb",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 05:42:25.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "ZAMA",
-        "symbol": "ZAMA",
-        "transfer_count_1d": 398,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 18
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "ZAMA",
-      "symbol": "ZAMA",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x55decd289ebb8f42eb66b693b452fd86fab45d05",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x55decd289ebb8f42eb66b693b452fd86fab45d05",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 01:45:07.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "ZAMA",
-    "symbol": "ZAMA",
-    "description": "ZAMA",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 397,
-      "unique_wallets": 18,
-      "deployer_only": false,
-      "tx_count_sample": 397,
-      "unique_wallets_sample": 18,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=397",
-      "wallet_touch_count=18",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x55decd289ebb8f42eb66b693b452fd86fab45d05",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 01:45:07.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "ZAMA",
-        "symbol": "ZAMA",
-        "transfer_count_1d": 397,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 18
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "ZAMA",
-      "symbol": "ZAMA",
-      "word_count": 2
-    }
-  },
-  {
-    "id": "base:token:0x85dbc0f73fd21e2693e4eaa99393639ef71e6575",
-    "chain": "base",
-    "object_type": "token",
-    "address": "0x85dbc0f73fd21e2693e4eaa99393639ef71e6575",
-    "creator": null,
-    "creation_tx": null,
-    "created_at": "2026-01-09 16:34:31.000 UTC",
-    "created_block": null,
-    "first_seen": "2026-01-09",
-    "snapshot_date": "2026-01-09",
-    "name": "dogking888",
-    "symbol": "dogking888",
-    "description": "dogking888",
-    "contract_signals": {
-      "verified_contract": false,
-      "contract_name": null,
-      "is_proxy": false,
-      "implementation": null,
-      "erc20": true,
-      "erc721": false,
-      "erc1155": false,
-      "has_metadata": true,
-      "bytecode_known": true,
-      "generic_name_risk": false
-    },
-    "activity_signals": {
-      "transfer_count": 444,
-      "unique_wallets": 6,
-      "deployer_only": false,
-      "tx_count_sample": 444,
-      "unique_wallets_sample": 6,
-      "activity_continues": true
-    },
-    "market_signals": {
-      "dex_listed": false,
-      "dex_id": null,
-      "pair_address": null,
-      "liquidity_usd": 0.0,
-      "volume_usd_24h": 0.0,
-      "price_usd": 0.0,
-      "recognized_dex": false
-    },
-    "cluster_signals": {
-      "cluster_size": 1,
-      "same_creator_nearby_contracts": 0,
-      "creator_tx_sample_size": 0,
-      "creator_spammy": false,
-      "has_project_cluster": false,
-      "has_utility_contract_hint": false,
-      "has_proxy_or_implementation_pattern": false,
-      "cluster_score": 0.0,
-      "related_contracts": []
-    },
-    "socials": {
-      "website": null,
-      "twitter_x": null,
-      "telegram": null,
-      "discord": null,
-      "github": null,
-      "docs": null
-    },
-    "scores": {
-      "project_likelihood_score": 0.0,
-      "economic_activity_score": 0.0,
-      "social_presence_score": 0.0,
-      "spam_risk_score": 1.0,
-      "momentum_score": 0.0,
-      "confidence_score": 0.0
-    },
-    "labels": [
-      "acceptable_name_quality",
-      "dune_discovered",
-      "fresh_first_seen_candidate",
-      "processing_error"
-    ],
-    "action": "ignore",
-    "why_kept": [
-      "dune_first_seen_transfer_candidate",
-      "transfer_count=444",
-      "wallet_touch_count=6",
-      "name_quality_score=0.5"
-    ],
-    "why_flagged": [
-      "processing_error=AttributeError"
-    ],
-    "source": "dune",
-    "raw": {
-      "dune": {
-        "address": "0x85dbc0f73fd21e2693e4eaa99393639ef71e6575",
-        "chain": "base",
-        "decimals": 18,
-        "discovery_source": "dune_first_seen_token_90d",
-        "first_seen_at": "2026-01-09 16:34:31.000 UTC",
-        "first_seen_date": "2026-01-09",
-        "name": "dogking888",
-        "symbol": "dogking888",
-        "transfer_count_1d": 444,
-        "transfer_volume_usd_1d": 0,
-        "wallet_touch_count_1d": 6
-      },
-      "discovery_source": "dune_first_seen_token_90d",
-      "processing_error": "'NoneType' object has no attribute 'get'"
-    },
-    "name_quality": {
-      "score": 0.5,
-      "name": "dogking888",
-      "symbol": "dogking888",
+      "score": 0.75,
+      "name": "ZenChain",
+      "symbol": "ZenChain",
       "word_count": 2
     }
   }
