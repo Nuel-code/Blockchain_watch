@@ -8,6 +8,7 @@ from src.config import (
     ENABLE_DUNE_DISCOVERY,
     ENABLE_HEAVY_ENRICHMENT,
     ENABLE_LEGACY_DISCOVERY,
+    MAX_HEAVY_ENRICH_CANDIDATES,
     MAX_PER_DAY,
     TODAY_UTC,
 )
@@ -22,7 +23,18 @@ from src.pipeline.project_identity import assess_project_identity
 from src.pipeline.scoring import score_item
 from src.pipeline.socials import enrich_socials
 from src.pipeline.storage import store_snapshot, update_seen_ids
-from src.utils import load_json
+from src.utils import load_json, safe_float, safe_int
+
+
+def _dune_pre_rank_key(item: Dict):
+    activity = item.get("activity_signals", {}) or {}
+    market = item.get("market_signals", {}) or {}
+
+    return (
+        safe_int(activity.get("unique_wallets"), 0),
+        safe_int(activity.get("transfer_count"), 0),
+        safe_float(market.get("volume_usd_24h"), 0.0),
+    )
 
 
 def discover_all_candidates(target_date: str) -> List[Dict]:
@@ -33,6 +45,7 @@ def discover_all_candidates(target_date: str) -> List[Dict]:
             "ENABLE_DUNE_DISCOVERY": ENABLE_DUNE_DISCOVERY,
             "ENABLE_LEGACY_DISCOVERY": ENABLE_LEGACY_DISCOVERY,
             "ENABLE_HEAVY_ENRICHMENT": ENABLE_HEAVY_ENRICHMENT,
+            "MAX_HEAVY_ENRICH_CANDIDATES": MAX_HEAVY_ENRICH_CANDIDATES,
             "target_date": target_date,
         }
     )
@@ -53,6 +66,7 @@ def discover_all_candidates(target_date: str) -> List[Dict]:
         print({"legacy_candidates": "skipped"})
 
     candidates = dedupe_candidates(candidates)
+    candidates = sorted(candidates, key=_dune_pre_rank_key, reverse=True)
 
     print({"total_candidates_after_dedupe": len(candidates)})
 
@@ -73,13 +87,25 @@ def _trim_raw(item: Dict) -> Dict:
             "has_any_social": item["raw"].get("has_any_social"),
             "dex_tx_count_1h": item["raw"].get("dex_tx_count_1h"),
             "dune_discovery_source": item["raw"].get("discovery_source"),
+            "heavy_enriched": item["raw"].get("heavy_enriched"),
         }
 
     return item
 
 
-def process_candidate(item: Dict, target_date: str) -> Dict:
-    if ENABLE_HEAVY_ENRICHMENT:
+def process_candidate(item: Dict, target_date: str, heavy_enrich: bool = False) -> Dict:
+    """
+    Fast path:
+      Dune discovery + local name/description/filter/score.
+
+    Heavy path:
+      Adds DexScreener/Etherscan/social/cluster enrichment.
+      Used only for top Dune candidates so backfill stays fast.
+    """
+    item.setdefault("raw", {})
+    item["raw"]["heavy_enriched"] = heavy_enrich
+
+    if heavy_enrich:
         item = enrich_candidate(item)
         item = apply_project_cluster(item)
         item = enrich_socials(item)
@@ -103,9 +129,15 @@ def run_daily_for_date(target_date: str, store: bool = True) -> List[Dict]:
     candidates = discover_all_candidates(target_date)
     processed: List[Dict] = []
 
-    for item in candidates:
+    for idx, item in enumerate(candidates):
         try:
-            item = process_candidate(item, target_date)
+            heavy_enrich = ENABLE_HEAVY_ENRICHMENT and idx < MAX_HEAVY_ENRICH_CANDIDATES
+
+            item = process_candidate(
+                item,
+                target_date,
+                heavy_enrich=heavy_enrich,
+            )
 
             if item.get("id") in seen_ids:
                 item["labels"].append("seen_before")
